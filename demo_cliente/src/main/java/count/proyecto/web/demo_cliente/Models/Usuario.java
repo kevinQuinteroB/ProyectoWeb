@@ -10,12 +10,18 @@ import lombok.Setter;
 @Setter
 @Entity
 @NoArgsConstructor
-@Table(name = "usuarios")
-public class Usuarios {
+@Table(name = "usuario")
+public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private long id;
+
+    @Column(name = "nombre")
+    private String nombre;
+
+    @Column(name = "apellido")
+    private String apellido;
 
     @Column(name = "username")
     private String username;
@@ -31,4 +37,10 @@ public class Usuarios {
 
     @Column(name = "saldo")
     private long saldo;
+
+    @Column(name = "sexo")
+    private String sexo;
+
+    @Column(name = "telefono")
+    private long telefono;
 }

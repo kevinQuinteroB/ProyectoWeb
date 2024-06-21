@@ -10,8 +10,8 @@ import lombok.Setter;
 @Setter
 @Entity
 @NoArgsConstructor
-@Table(name = "Juegos")
-public class Juegos {
+@Table(name = "Juego")
+public class Juego {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
@@ -28,4 +28,10 @@ public class Juegos {
 
     @Column(name = "precio")
     private long precio;
+
+    @Column(name = "imagen")
+    private String imagen;
+
+    @Column(name = "descuento")
+    private long descuento;
 }
