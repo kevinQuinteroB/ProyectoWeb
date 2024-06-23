@@ -14,8 +14,8 @@ import lombok.Setter;
 public class Juego {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private long id;
+    @Column(name = "idJuego")
+    private long idJuego;
 
     @Column(name = "nombre")
     private String nombre;
