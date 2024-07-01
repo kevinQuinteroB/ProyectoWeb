@@ -19,6 +19,7 @@
 
 .boton-morado{
     background-color: blueviolet;
+    color: black;
 }
 
 .boton-morado:hover{
@@ -27,6 +28,7 @@
 
 .boton-rojo{
     background-color: rgb(250, 5, 98, 98);
+    color: black;
 }
 
 .boton-rojo:hover{
@@ -36,13 +38,13 @@
 .formllenar{
     background-color: transparent;
     height: 3rem;
-    color: blueviolet;
+    color: #fff;
     border: 2px solid blueviolet;
 }
 
 .formllenar::placeholder{
     font-size: small;
-    color: blueviolet;
+    color: #fff;
 }
 
 .boton{
