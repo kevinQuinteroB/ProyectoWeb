@@ -4,22 +4,45 @@
     display: flex;
     justify-content: center;
     height: 100%;
-    margin-top: 10%;
     padding-left: 20%;
     padding-right: 20%;
+    padding-top: 10%;
 }
 
-.sombra{
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+.cartaOscura{
+    background-color: black;
+}
+
+.borde{
+    border: 2px solid blueviolet;
+}
+
+.boton-morado{
+    background-color: blueviolet;
+}
+
+.boton-morado:hover{
+    background-color: rebeccapurple;
+}
+
+.boton-rojo{
+    background-color: rgb(250, 5, 98, 98);
+}
+
+.boton-rojo:hover{
+    background-color:brown;
 }
 
 .formllenar{
     background-color: transparent;
     height: 3rem;
+    color: blueviolet;
+    border: 2px solid blueviolet;
 }
 
 .formllenar::placeholder{
     font-size: small;
+    color: blueviolet;
 }
 
 .boton{
@@ -39,4 +62,9 @@
     display: flex;
     max-width: 100%;
     max-height: 100%;
+}
+
+body {
+    background-color: black;
+    height: 100vh;
 }

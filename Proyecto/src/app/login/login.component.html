@@ -1,79 +1,84 @@
-
-<div class="container-fluid">
-    <div class="row container-centrado">
-        <div class="col-6" style="padding-right: 5%; overflow: hidden;">
-            <img class="imagen" src="https://i.ibb.co/QMVs4q5/d18ab976-015f-4e80-b330-cce6f8e54938.jpg" />
-        </div>
-        <div class="col-6">
-            <div class="card text-bg-light mb-3 sombra">
-                <div class="card-header">
-                    <div class="mb-3" style="padding-top: 5%;">
-                        <input type="email" class="form-control formllenar" id="correo" placeholder="CORREO ELECTRONICO O NUMERO CELULAR">
-                      </div>
-                      <div class="mb-3">
-                        <input type="email" class="form-control formllenar" id="contrasena" placeholder="CONTRASEÑA">
-                      </div>
-
-                      <button type="button" class="btn btn-primary boton">Iniciar Sesión</button>
-
-                      <p class="olvidarContrasena"><a href="#" class="link-primary">¿Olvidaste tu contraseña?</a></p>
+<html>
+    <body>
+        <div class="container-fluid">
+            <div class="row container-centrado">
+                <div class="col-6" style="padding-right: 5%; overflow: hidden;">
+                    <img class="imagen" src="https://i.ibb.co/8ckZYyp/d18ab976-015f-4e80-b330-cce6f8e54938.jpg" />
                 </div>
-                <div class="card-body">
-                    <button type="button" class="btn btn-success boton" data-bs-toggle="modal" data-bs-target="#exampleModal">Crer una cuenta nueva</button>
-
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                                <div class="container-fluid">
-                                    <div class="row">
-                                        <p class="h1" style="font-size: 25px;">Registrate</p>
+                <div class="col-6">
+                    <div class="card cartaOscura borde">
+                        <div class="card-header">
+                            <div class="mb-3" style="padding-top: 5%;">
+                                <input type="text" class="form-control formllenar" id="correo" placeholder="CORREO ELECTRONICO O NUMERO CELULAR">
+                              </div>
+                              <div class="mb-3">
+                                <input type="text" class="form-control formllenar" id="contrasena" placeholder="CONTRASEÑA">
+                              </div>
+        
+                              <button type="button" class="btn boton-morado boton">Iniciar Sesión</button>
+        
+                              <p class="olvidarContrasena"><a href="#" class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">¿Olvidaste tu contraseña?</a></p>
+                        </div>
+                        <div class="card-body" style="border-top: 2px solid blueviolet;">
+                            <button type="button" class="btn boton-rojo boton" data-bs-toggle="modal" data-bs-target="#exampleModal">Crer una cuenta nueva</button>
+        
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <p class="h1" style="font-size: 25px;">Registrate</p>
+                                            </div>
+                                            <div class="row">
+                                                <p class="display-6" style="font-size: 15px;">Facil y rapido</p>
+                                            </div>
+                                        </div>
+                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
-                                    <div class="row">
-                                        <p class="display-6" style="font-size: 15px;">Facil y rapido</p>
+                                    <div class="modal-body">
+                                        
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <input type="email" class="form-control" id="nombreUsuario" placeholder="Nombres">
+                                                </div>
+                                                <div class="col-6">
+                                                    <input type="email" class="form-control" id="apellidoUsuarop" placeholder="Apeliidos">
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding-top: 4%;">
+                                                <div class="col-12">
+                                                    <input type="text" class="form-control" placeholder="Correo electronico" aria-describedby="basic-addon1">
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding-top: 4%;">
+                                                <div class="col-12">
+                                                    <input type="password" class="form-control" placeholder="Contraseña" aria-describedby="basic-addon1">
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding-top: 4%;">
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text" id="basic-addon1">&#64;</span>
+                                                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                      <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                  </div>
                                 </div>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                
-                                <div class="container-fluid">
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <input type="email" class="form-control" id="nombreUsuario" placeholder="Nombres">
-                                        </div>
-                                        <div class="col-6">
-                                            <input type="email" class="form-control" id="apellidoUsuarop" placeholder="Apeliidos">
-                                        </div>
-                                    </div>
-                                    <div class="row" style="padding-top: 4%;">
-                                        <div class="col-12">
-                                            <input type="text" class="form-control" placeholder="Correo electronico" aria-describedby="basic-addon1">
-                                        </div>
-                                    </div>
-                                    <div class="row" style="padding-top: 4%;">
-                                        <div class="col-12">
-                                            <input type="password" class="form-control" placeholder="Contraseña" aria-describedby="basic-addon1">
-                                        </div>
-                                    </div>
-                                    <div class="row" style="padding-top: 4%;">
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1">&#64;</span>
-                                            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                              <button type="button" class="btn btn-primary">Save changes</button>
-                            </div>
-                          </div>
+                              </div>
                         </div>
                       </div>
                 </div>
-              </div>
+            </div>
         </div>
-    </div>
-</div>
+    </body>
+
+</html>
+
 
