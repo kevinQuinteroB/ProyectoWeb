@@ -20,12 +20,12 @@
                               <p class="olvidarContrasena"><a href="#" class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">¿Olvidaste tu contraseña?</a></p>
                         </div>
                         <div class="card-body" style="border-top: 2px solid blueviolet;">
-                            <button type="button" class="btn boton-rojo boton" data-bs-toggle="modal" data-bs-target="#exampleModal">Crer una cuenta nueva</button>
+                            <button type="button" class="btn boton-rojo boton" data-bs-toggle="modal" data-bs-target="#crearCuenta">Crer una cuenta nueva</button>
         
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="crearCuenta" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                   <div class="modal-content">
-                                    <div class="modal-header">
+                                    <div class="modal-header" style="padding-bottom: 0.5%;">
                                         <div class="container-fluid">
                                             <div class="row">
                                                 <p class="h1" style="font-size: 25px;">Registrate</p>
@@ -38,7 +38,7 @@
                                     </div>
                                     <div class="modal-body">
                                         
-                                        <div class="container-fluid">
+                                        <div class="container-fluid" style="padding-top: 1%;">
                                             <div class="row">
                                                 <div class="col-6">
                                                     <input type="email" class="form-control" id="nombreUsuario" placeholder="Nombres">
@@ -57,12 +57,34 @@
                                                     <input type="password" class="form-control" placeholder="Contraseña" aria-describedby="basic-addon1">
                                                 </div>
                                             </div>
-                                            <div class="row" style="padding-top: 4%;">
-                                                <div class="input-group mb-3">
+                                            <div class="input-group mb-3" style="padding-top: 4%;">
+                                                <label class="input-group-text" for="inputGroupSelect01">Edad</label>
+                                                <input type="number" class="form-control" id="telefono">
+                                            </div>
+                                            <div class="input-group mb-3" style="padding-top: 1%;">
+                                                <label class="input-group-text" for="inputGroupSelect01">Sexo</label>
+                                                <div class="input-group-text">
+                                                    <input class="form-check-input mt-0" type="radio" id="gender-male" name="gender" value="Masculino">
+                                                    <span style="padding-left: 10px;"> Masculino</span>
+                                                </div>
+                                                
+                                                <div class="input-group-text">
+                                                    <input class="form-check-input mt-0" type="radio" id="gender-female" name="gender" value="Femenino">
+                                                    <span style="padding-left: 10px;"> Femenino</span>
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="row" style="padding-top: 1%;">
+                                                <div class="input-group mb-3" style="height: 40px;">
                                                     <span class="input-group-text" id="basic-addon1">&#64;</span>
                                                     <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
                                                 </div>
                                             </div>
+                                            <div class="mb-3">
+                                                <label for="telefono" class="form-label">Número de teléfono</label>
+                                                <input type="tel" class="form-control" id="telefono" maxlength="10" pattern="[0-9]{10}" title="Debe tener exactamente 10 dígitos">
+                                            </div>                                                
+                                            
                                         </div>
                                     </div>
                                     <div class="modal-footer">
