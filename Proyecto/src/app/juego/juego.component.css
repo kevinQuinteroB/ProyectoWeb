@@ -10,6 +10,9 @@ body, div, ul, nav, header, footer, a, li, label{
     margin: 0;
     padding: 0;
 }
+h1,h2,h3{
+    text-align: center;
+}
 
 
 /* ---------------------------- Header Section ---------------------------- */
@@ -88,8 +91,8 @@ body, div, ul, nav, header, footer, a, li, label{
 .header__user-container{
     background-color: #474747;
     margin: 10px;
-    width: 4%;
-    height: 50px;
+    width: 9dvh;
+    height: 8dvh;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -139,7 +142,7 @@ body, div, ul, nav, header, footer, a, li, label{
     background-color: transparent;
     color: #fff;
     border-radius: 6px;
-    letter-spacing: 4px;
+    letter-spacing: 2px;
     position: relative;
     margin: 10px;
 }
@@ -164,7 +167,21 @@ body, div, ul, nav, header, footer, a, li, label{
     color: #fff;
 }
 
- .wrapper{
+.main__center-img{
+    width: 100%;
+    max-width: 90%; 
+    height: auto; 
+    overflow: hidden;
+}
+
+.main__center-img img {
+    width: 100%; 
+    height: auto; 
+    display: block; 
+    border-radius: 20px;
+}
+
+.wrapper{
     display: flex;
     align-items: center;
     list-style-type: none;
@@ -173,7 +190,7 @@ body, div, ul, nav, header, footer, a, li, label{
 }
 
 .btnn{
-    padding: 20px 30px;
+    padding: 2dvh 4dvh;
     background-color: transparent;
     color: #fff;
     border-radius: 6px;
@@ -264,9 +281,10 @@ body, div, ul, nav, header, footer, a, li, label{
 
 
 .main__right-img {
-    width: 300px;
-    height: 200px; 
-    overflow: hidden; /
+    width: 100%;
+    max-width: 300px; 
+    height: auto; 
+    overflow: hidden;
 }
 
 .main__right-img img {
@@ -275,6 +293,7 @@ body, div, ul, nav, header, footer, a, li, label{
     display: block; 
     border-radius: 20px;
 }
+
 .right__wrapper{
     display: flex;
     flex-direction: column;
@@ -286,4 +305,38 @@ body, div, ul, nav, header, footer, a, li, label{
     padding: 10px 20px;
     margin: 10px;
     border: 1px solid #fff;
+}
+
+
+
+/* ---------------------------- Main Section ---------------------------- */
+
+
+@media (max-width: 1000px) {
+    .wrapper{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        list-style-type: none;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .btnn{
+        padding: 1.5dvh 3dvh;
+        background-color: transparent;
+        margin: 5px;
+        width: 170px;
+    } 
+    .main__left-container{
+        display: none;
+    } 
+    .main__right-container{
+        width: 35%;
+    } 
+    .main__center-container{
+        width: 65%;
+    }
 }
