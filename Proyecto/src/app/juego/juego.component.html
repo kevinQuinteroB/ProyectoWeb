@@ -1,39 +1,122 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trabajo Real</title>
-    <link rel="stylesheet" href="juego.component.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trabajo Real</title>
+  <link rel="stylesheet" href="juego.component.css">
 </head>
 
 <body>
-    <header class="header">     
-    
-        <div class="header__logo-container">
-            <img class="header__logo" src="https://i.ibb.co/PD8tW95/logito.png" alt="logito">
+  <!---------------------------------- Header ---------------------------------->
+  <header class="header">
+
+    <div class="header__logo-container">
+      <img class="header__logo" src="https://i.ibb.co/PD8tW95/logito.png" alt="logito">
+    </div>
+
+    <div class="header__search-container">
+      <nav class="navbar navbar-light bg-light">
+        <form class="form-inline">
+          <input class="form-control mr-sm-2" type="search" placeholder="Buscar en la tienda" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+        </form>
+      </nav>
+    </div>
+
+    <div class="header__nav-container">
+      <button type="button" class="btn btn-secondary">Secondary</button>
+      <button type="button" class="btn btn-secondary">Secondary</button>
+    </div>
+
+    <div class="header__user-container">
+      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-fill"
+        viewBox="0 0 16 16">
+        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+      </svg>
+    </div>
+
+  </header>
+
+
+  <main class="main">
+    <!---------------------------------- Main ---------------------------------->
+    <div class="main__container">
+
+      <!---------- left ------------->
+      <div class="main__left-container">
+        <div class="main__navv">
+        <button type="button" class="btn main-secondary">Secondary</button>
+        <button type="button" class="btn main-secondary">Secondary</button>
+        <button type="button" class="btn main-secondary">Secondary</button>
+      </div>
+      </div>
+
+
+
+      <!---------- center ------------->
+      <div class="main__center-container">
+        <h1>Call Of Duty Black Ops</h1>
+        <h4>(Valoracion)</h4>
+
+        <div class="main__center-img">
+          <img src="https://www.gamechampions.com/media/m1gft121/back-ops-cover.webp" alt="Imagen del Juego">
         </div>
 
-        <div class="header__search-container">
-            <nav class="navbar navbar-light bg-light">
-                <form class="form-inline">
-                  <input class="form-control mr-sm-2" type="search" placeholder="Buscar en la tienda" aria-label="Search">
-                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-                </form>
-              </nav>
+        <div class="wrapper">
+
+          <div class="button-container">
+            <button class="btnn btn-2">GENERO</button>
+          </div>
+          <div class="button-container">
+            <button class="btnn btn-2">PRECIO</button>
+          </div>
+          <div class="button-container">
+            <button class="btnn btn-2">DESCUENTO</button>
+          </div>
+
+        </div>
+        
+        <div class="main__center-descripcion">
+          <p class="center__descripcion"> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non, odio sint quasi
+            voluptatem laborum expedita dolores vitae ut perferendis rerum velit beatae, quam reiciendis nesciunt omnis.
+            Cum eos nulla sit!Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus explicabo rem, enim
+            alias voluptate quisquam eligendi ut perspiciatis omnis similique, nisi dicta aut, minus vel mollitia nemo
+            veritatis soluta est! Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur saepe error dolorem
+            optio porro, reprehenderit deleniti quibusdam, incidunt eveniet quasi ex atque dolore corrupti doloribus
+            ipsum. Harum iusto sit minima? Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, totam odio
+            vitae voluptas similique sequi eligendi est consequatur quod dolorem, explicabo officia ad debitis placeat
+            esse, et impedit omnis obcaecati! lo</p>
+        </div>
+      </div>
+
+
+      <!---------- right ------------->
+      <div class="main__right-container">
+
+        <div class="main__right-img">
+          <img src="https://www.gamechampions.com/media/m1gft121/back-ops-cover.webp" alt="Imagen del Juego">
         </div>
 
-        <div class="header__nav-container">
-            <button type="button" class="btn btn-secondary">Secondary</button>
-            <button type="button" class="btn btn-secondary">Secondary</button>
+        <div class="right__wrapper">
+          <button type="button" class="btn right-secondary">Secondary</button>
+          <button type="button" class="btn right-secondary">AÑADIR AL CARRITO</button>
         </div>
 
-        <div class="header__user-container">
-            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
-                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
-            </svg>
+        <div class="main__right-descripcion">
+          <p class="right__wrapper"> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus explicabo
+            rem, enim alias voluptate quisquam eligendi ut perspiciatis omnis similique, nisi dicta aut, minus vel
+            mollitia nemo veritatis soluta est! Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur saepe
+            error dolorem optio porro, reprehenderit deleniti quibusdam, incidunt eveniet quasi ex atque dolore corrupti
+            doloribus ipsum. Harum iusto sit minima? Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, totam
+            odio vitae voluptas similique sequi eligendi est consequatur quod dolorem, explicabo officia ad debitis
+            placeat esse, et impedit omnis obcaecati! lo</p>
         </div>
+      </div>
 
-    </header>
+
+    </div>
+  </main>
 
 </body>
