@@ -8,7 +8,3 @@ import { Component } from '@angular/core';
 export class PerfiljugadorComponent {
 
 }
-document.addEventListener('DOMContentLoaded', () => {
-  const menuBtn = document.querySelector('.menu-btn') as HTMLButtonElement;
-  const header = document.querySelector('.header') as HTMLElement;
-});
