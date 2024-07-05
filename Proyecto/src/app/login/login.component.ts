@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { UsuarioService } from '../usuario.service';
+import * as bootstrap from 'bootstrap';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +11,30 @@ import { Component } from '@angular/core';
 
 
 export class LoginComponent {
+  constructor(private router:Router, private usuarioService:UsuarioService,){
 
+  }
+  email: string;
+  contrasena: string;
+  consulta(): void {
+    
+    this.usuarioService.consultarUsuario(this.email, this.contrasena).subscribe(response => {
+      console.log('Usuario registrado:', response);
+      if (response != null) {
+        this.router.navigate(['/juego']);
+      } else {
+        console.error('Error al autenticar usuario:');
+        this.mostrarModalError();
+      }
+    });
+  }
+  mostrarModalError(): void {
+    const modalElement = document.getElementById('exampleModal');
+    if (modalElement) {
+      const myModal = new bootstrap.Modal(modalElement);
+      myModal.show();
+    }
+  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {

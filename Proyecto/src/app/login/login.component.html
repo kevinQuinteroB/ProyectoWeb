@@ -9,15 +9,12 @@
                     <div class="card cartaOscura borde">
                         <div class="card-header">
                             <div class="mb-3" style="padding-top: 5%;">
-                                <input type="text" class="form-control formllenar" id="correo" placeholder="CORREO ELECTRONICO O NUMERO CELULAR">
+                                <input type="text" class="form-control formllenar" id="correo" placeholder="CORREO ELECTRONICO" [(ngModel)]="email">
                               </div>
                               <div class="mb-3">
-                                <input type="password" class="form-control formllenar" id="contraseña" placeholder="CONTRASEÑA">
+                                <input type="password" class="form-control formllenar" id="contraseña" placeholder="CONTRASEÑA" [(ngModel)]="contrasena">
                               </div>
-        
-                              <button type="button" class="btn boton-morado boton">Iniciar Sesión</button>
-        
-                              <p class="olvidarContrasena"><a href="#" class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">¿Olvidaste tu contraseña?</a></p>
+                              <button type="button" class="btn boton-morado boton" (click)="consulta()">Iniciar Sesión</button>
                         </div>
                         <div class="card-body" style="border-top: 2px solid blueviolet;">
                             <button type="button" class="btn boton-rojo boton" data-bs-toggle="modal" data-bs-target="#crearCuenta">Crer una cuenta nueva</button>
@@ -96,6 +93,22 @@
                               </div>
                         </div>
                       </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content" style="background-color: rgb(46, 46, 46);">
+                    <div class="modal-header" style="background-color: rgb(46, 46, 46);">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: rgb(255, 255, 255);">Error</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" style="color: rgb(255, 255, 255); background-color: rgb(46, 46, 46);">
+                        Usuario no encontrado
+                    </div>
+                    <div class="modal-footer" style="background-color: rgb(46, 46, 46);">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
                 </div>
             </div>
         </div>
