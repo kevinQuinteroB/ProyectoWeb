@@ -16,12 +16,12 @@ public class ComentarioController {
     @Autowired
     private ComentarioService comentarioService;
 
-    @GetMapping("/login/{id_juego}")
+    @GetMapping("/juego/{id_juego}")
     public ResponseEntity<Comentario> retunComentario(@PathVariable Long id_juego) {
         return ResponseEntity.ok(comentarioService.findComentarioByid_juego(id_juego));
     }
 
-    @PostMapping("/login")
+    @PostMapping("/juego")
     public ResponseEntity<Comentario>registrarComentario(@RequestBody Comentario comentario){
         Comentario newComentario = comentarioService.saveComentario(comentario);
         return ResponseEntity.ok(newComentario);
