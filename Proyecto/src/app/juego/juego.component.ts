@@ -21,4 +21,15 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+  
+document.addEventListener('DOMContentLoaded', function () {
+  const generoButton = document.querySelector('.generoBtn') as HTMLButtonElement;
+  const tableContainer = document.querySelector('.table-container') as HTMLElement;
+
+  generoButton.addEventListener('click', () => {
+    tableContainer.classList.toggle('visible');
+  });
+});
+
+
 
