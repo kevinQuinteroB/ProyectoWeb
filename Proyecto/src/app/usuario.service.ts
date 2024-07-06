@@ -8,12 +8,12 @@ import * as bootstrap from 'bootstrap';
   providedIn: 'root'
 })
 export class UsuarioService {
-  private baseURL = 'http://localhost:8080/login';
+  private baseURL = 'http://localhost:8080';
 
   constructor(private httpClient: HttpClient) {}
   consultarUsuario(email: string, contrasena: string): Observable<Usuario> {
 
-    return this.httpClient.get<Usuario>(`${this.baseURL}/${email}/${contrasena}`);
+    return this.httpClient.get<Usuario>(`${this.baseURL}/login/${email}/${contrasena}`);
   }
 
   mostrarModalError(): void {
@@ -22,5 +22,8 @@ export class UsuarioService {
       const myModal = new bootstrap.Modal(modalElement);
       myModal.show();
     }
+  }
+  registrarUsuario(usuario:any): Observable<any>{
+    return this.httpClient.post(`${this.baseURL}/login`, usuario);
   }
 }

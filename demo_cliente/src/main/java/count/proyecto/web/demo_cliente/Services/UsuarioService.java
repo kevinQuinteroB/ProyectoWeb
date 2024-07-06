@@ -13,4 +13,8 @@ public class UsuarioService {
     public Usuario findUsuarioByEmail(String email, String contrasena) {
         return usuarioRepository.findByEmail(email, contrasena);
     }
+
+    public Usuario saveUsuario(Usuario usuario){
+        return usuarioRepository.save(usuario);
+    }
 }
