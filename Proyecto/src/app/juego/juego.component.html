@@ -26,8 +26,8 @@
     </div>
 
     <div class="header__nav-container">
-      <button type="button" class="btn btn-secondary">Secondary</button>
-      <button type="button" class="btn btn-secondary">Secondary</button>
+      <button type="button" class="btn btn-secondary">Home</button>
+      <button type="button" class="btn btn-secondary generoBtn">Genero</button>
     </div>
 
     <div class="header__user-container">
@@ -46,13 +46,14 @@
     <!---------------------------------- Main ---------------------------------->
     <div class="main__container">
 
+
       <!---------- left ------------->
       <div class="main__left-container">
         <div class="main__navv">
-        <button type="button" class="btn main-secondary">Secondary</button>
-        <button type="button" class="btn main-secondary">Secondary</button>
-        <button type="button" class="btn main-secondary">Secondary</button>
-      </div>
+          <button type="button" class="btn main-secondary">Secondary</button>
+          <button type="button" class="btn main-secondary">Secondary</button>
+          <button type="button" class="btn main-secondary">Secondary</button>
+        </div>
       </div>
 
 
@@ -69,7 +70,7 @@
         <div class="wrapper">
 
           <div class="button-container">
-            <button class="btnn btn-2">GENERO</button>
+            <button type="" class="btnn btn-2">GENERO</button>
           </div>
           <div class="button-container">
             <button class="btnn btn-2">PRECIO</button>
@@ -102,23 +103,45 @@
         </div>
 
         <div class="right__wrapper">
-          <button type="button" class="btn right-secondary">Secondary</button>
+          <button type="button" class="btn right-secondary">Comprar</button>
           <button type="button" class="btn right-secondary">AÑADIR AL CARRITO</button>
         </div>
 
-        <div class="main__right-descripcion">
-          <p class="right__wrapper"> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus explicabo
-            rem, enim alias voluptate quisquam eligendi ut perspiciatis omnis similique, nisi dicta aut, minus vel
-            mollitia nemo veritatis soluta est! Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur saepe
-            error dolorem optio porro, reprehenderit deleniti quibusdam, incidunt eveniet quasi ex atque dolore corrupti
-            doloribus ipsum. Harum iusto sit minima? Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, totam
-            odio vitae voluptas similique sequi eligendi est consequatur quod dolorem, explicabo officia ad debitis
-            placeat esse, et impedit omnis obcaecati! lo</p>
-        </div>
+
+  
+        <div class="comment-section">
+          <div class="comment-input">
+              <textarea placeholder="Añadir comentario"></textarea>
+              <button type="submit">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send-fill" viewBox="0 0 16 16">
+                      <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471z"/>
+                  </svg>
+              </button>
+          </div>
+          <div class="comment-list">
+              <div class="comment">
+                  <p>Comentarios al azar... solo diseño por ejemplo Lorem ipsum dolor sit amet, consectetur</p>
+              </div>
+              <div class="comment">
+                  <p>Otro comentario de ejemplo...</p>
+              </div>
+              <div class="comment">
+                  <p>Otro comentario de ejemplo...</p>
+              </div>
+          </div>
       </div>
 
+      </div>
 
     </div>
   </main>
+
+
+    <div class="table-container">
+      <h5>Clasificacion</h5>
+      <ul id="listaGeneros">
+        <!-- Aquí se llenará dinámicamente con JavaScript -->
+      </ul>
+    </div>
 
 </body>

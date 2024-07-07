@@ -9,15 +9,12 @@
                     <div class="card cartaOscura borde">
                         <div class="card-header">
                             <div class="mb-3" style="padding-top: 5%;">
-                                <input type="text" class="form-control formllenar" id="correo" placeholder="CORREO ELECTRONICO O NUMERO CELULAR">
+                                <input type="text" class="form-control formllenar" id="correo" placeholder="CORREO ELECTRONICO" [(ngModel)]="email">
                               </div>
                               <div class="mb-3">
-                                <input type="password" class="form-control formllenar" id="contraseña" placeholder="CONTRASEÑA">
+                                <input type="password" class="form-control formllenar" id="contraseña" placeholder="CONTRASEÑA" [(ngModel)]="contrasena">
                               </div>
-        
-                              <button type="button" class="btn boton-morado boton">Iniciar Sesión</button>
-        
-                              <p class="olvidarContrasena"><a href="#" class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">¿Olvidaste tu contraseña?</a></p>
+                              <button type="button" class="btn boton-morado boton" (click)="consulta()">Iniciar Sesión</button>
                         </div>
                         <div class="card-body" style="border-top: 2px solid blueviolet;">
                             <button type="button" class="btn boton-rojo boton" data-bs-toggle="modal" data-bs-target="#crearCuenta">Crer una cuenta nueva</button>
@@ -41,35 +38,35 @@
                                         <div class="container-fluid" style="padding-top: 1%;">
                                             <div class="row">
                                                 <div class="col-6">
-                                                    <input type="email" class="form-control" id="nombreUsuario" placeholder="Nombres">
+                                                    <input type="email" class="form-control" id="nombreUsuario" placeholder="Nombres" [(ngModel)]="nombre">
                                                 </div>
                                                 <div class="col-6">
-                                                    <input type="email" class="form-control" id="apellidoUsuarop" placeholder="Apeliidos">
+                                                    <input type="email" class="form-control" id="apellidoUsuarop" placeholder="Apeliidos" [(ngModel)]="apellido">
                                                 </div>
                                             </div>
                                             <div class="row" style="padding-top: 4%;">
                                                 <div class="col-12">
-                                                    <input type="text" class="form-control" placeholder="Correo electronico" aria-describedby="basic-addon1">
+                                                    <input type="text" class="form-control" placeholder="Correo electronico" aria-describedby="basic-addon1" [(ngModel)]="email">
                                                 </div>
                                             </div>
                                             <div class="row" style="padding-top: 4%;">
                                                 <div class="col-12">
-                                                    <input type="password" class="form-control" placeholder="Contraseña" aria-describedby="basic-addon1">
+                                                    <input type="password" class="form-control" placeholder="Contraseña" aria-describedby="basic-addon1" [(ngModel)]="contrasena">
                                                 </div>
                                             </div>
                                             <div class="input-group mb-3" style="padding-top: 4%;">
                                                 <label class="input-group-text" for="inputGroupSelect01">Edad</label>
-                                                <input type="number" class="form-control" id="telefono">
+                                                <input type="number" class="form-control" id="telefono" [(ngModel)]="edad">
                                             </div>
                                             <div class="input-group mb-3" style="padding-top: 1%;">
                                                 <label class="input-group-text" for="inputGroupSelect01">Sexo</label>
                                                 <div class="input-group-text">
-                                                    <input class="form-check-input mt-0" type="radio" id="gender-male" name="gender" value="Masculino">
+                                                    <input class="form-check-input mt-0" type="radio" id="gender-male" name="gender" value="Masculino" [(ngModel)]="sexo">
                                                     <span style="padding-left: 10px;"> Masculino</span>
                                                 </div>
                                                 
                                                 <div class="input-group-text">
-                                                    <input class="form-check-input mt-0" type="radio" id="gender-female" name="gender" value="Femenino">
+                                                    <input class="form-check-input mt-0" type="radio" id="gender-female" name="gender" value="Femenino" [(ngModel)]="sexo">
                                                     <span style="padding-left: 10px;"> Femenino</span>
                                                 </div>
                                                 
@@ -77,25 +74,57 @@
                                             <div class="row" style="padding-top: 1%;">
                                                 <div class="input-group mb-3" style="height: 40px;">
                                                     <span class="input-group-text" id="basic-addon1">&#64;</span>
-                                                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                                                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="username">
                                                 </div>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="telefono" class="form-label">Número de teléfono</label>
-                                                <input type="tel" class="form-control" id="telefono" maxlength="10" pattern="[0-9]{10}" title="Debe tener exactamente 10 dígitos">
+                                                <input type="tel" class="form-control" id="telefono" maxlength="10" pattern="[0-9]{10}" title="Debe tener exactamente 10 dígitos" [(ngModel)]="telefono">
                                             </div>                                                
                                             
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                      <button type="button" class="btn btn-primary">Save changes</button>
+                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="borrarFormulario()">Cerrar</button>
+                                      <button type="button" class="btn btn-primary" [disabled]="!formularioCompleto()" (click)="registrar()">Registrarse</button>
                                     </div>
                                   </div>
                                 </div>
                               </div>
                         </div>
                       </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="loginExitoso" tabindex="-1" aria-labelledby="loginExitoso" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content" style="background-color: rgb(46, 46, 46);">
+                    <div class="modal-header" style="background-color: rgb(46, 46, 46);">
+                        <h1 class="modal-title fs-5" id="loginExitoso" style="color: rgb(255, 255, 255);">{{titulo}}</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" style="color: rgb(255, 255, 255); background-color: rgb(46, 46, 46);">
+                        {{mensaje}}
+                    </div>
+                    <div class="modal-footer" style="background-color: rgb(46, 46, 46);">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="refreshPage()">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content" style="background-color: rgb(46, 46, 46);">
+                    <div class="modal-header" style="background-color: rgb(46, 46, 46);">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: rgb(255, 255, 255);">Error</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" style="color: rgb(255, 255, 255); background-color: rgb(46, 46, 46);">
+                        Usuario no encontrado
+                    </div>
+                    <div class="modal-footer" style="background-color: rgb(46, 46, 46);">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
                 </div>
             </div>
         </div>

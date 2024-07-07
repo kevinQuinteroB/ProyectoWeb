@@ -1,5 +1,6 @@
 package count.proyecto.web.demo_cliente.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,7 +17,7 @@ public class Comentario {
     @Column(name = "idComentario")
     private long idComentario;
 
-    @Column (name="contenido")
+    @Column(name="contenido")
     private String contenido;
 
     @Column(name="valoracionJuego")
@@ -24,9 +25,11 @@ public class Comentario {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="idUsuario", nullable = false)
+    @JsonIgnoreProperties({"nombre", "apellido", "username", "edad", "email", "contrasena", "saldo", "sexo", "telefono"})
     private Usuario usuario;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="idJuego", nullable = false)
+    @JsonIgnoreProperties({"nombre", "descripcion","valoracion", "precio", "imagen", "descuento"})
     private Juego juego;
 }

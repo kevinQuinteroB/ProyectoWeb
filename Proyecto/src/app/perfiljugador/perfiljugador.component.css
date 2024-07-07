@@ -1,0 +1,208 @@
+*{
+    box-sizing: border-box;
+}
+
+
+
+body{
+    min-height: 100vh;
+    background-color: #000000;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body, div, ul, nav, header, footer, a, li, label{
+    margin: 0;
+    padding: 0;
+}
+h1,h2,h3{
+    text-align: center;
+}
+
+
+/* ---------------------------- Header Section ---------------------------- */
+
+.header{
+    background-color: #202020;
+    display: flex;  
+    justify-content: space-between;
+    align-items: center;
+    container-type: inline-size;
+    container-name: header;
+    position: sticky;
+    top: 0;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    z-index: 10;
+}
+
+/*------------logo---------------*/
+
+.header__logo-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+}
+.header__logo{
+    max-width: 100%;
+    width: 60px;
+    margin: 5px 10px;
+}
+
+/*------------Buscador---------------*/
+.header__search-container{  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 55%;
+}
+
+.form-inline{
+    background-color: #202020;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.btn-outline-success{
+    color: #ffffffc0;
+    border-color: #640855;
+}
+
+.btn-outline-success:hover{
+    background-color: #410537;
+}
+
+
+/*------------Lista de Botones---------------*/
+.header__nav-container{
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+.btn-secondary{
+    margin: 10px;
+    background-color: #202020;
+    border: none;
+    color: #ffffffc0;
+}
+.btn:hover{
+    color: #fff;
+}
+/*------------Usuario---------------*/
+
+.header__user-container{
+    background-color: #474747;
+    margin: 10px;
+    width: 9dvh;
+    height: 8dvh;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bi-person-fill{
+    color: #ffffffc0;
+}
+
+.bi-person-fill:hover{
+    color: #fff;
+ }
+
+.menu-btn{
+    display: none;
+}
+
+/* ---------------------------- Header Responsive ---------------------------- */
+
+@media (max-width: 800px) {
+.header__nav-container,
+.header__user-container {
+   display: none; 
+}
+
+.menu-btn {
+   display: block; 
+   background-color: transparent;
+   color: #fff;
+   border: none;
+   font-size: 30px;
+   margin: 5px;
+}
+
+.dropdown-active .header__nav-container{
+    display: flex; 
+    flex-direction: column;
+    align-items: end;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    background-color: #202020;
+    border: 1px solid #474747;
+    border-radius: 10px;
+    z-index: 20;
+    width: auto; 
+    height: 200px;
+}
+
+.dropdown-active .header__user-container{
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 60px;
+    right: 35px;
+    background-color: #202020;
+    border: 1px solid #474747;
+    border-radius: 10px;
+    z-index: 20;
+    width: 50px; 
+    height: 50px;
+}
+}
+
+
+/* ---------------------------- Bloque central ---------------------------- */
+
+.BloqueCentralGrande{
+    margin-top: 2vh;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+img{
+    display:block;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.textoDatosUsuario{
+    color: #fff;
+    font-size: 20px;
+}
+
+.textoPadding{
+    margin-top: 2%;
+}
+
+.articulos{
+    border: #474747 3px solid;
+}
+.imagen{
+    border-right: #474747 3px solid;
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+}
+
+.tituloJuego{
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-left: 10px;
+    text-align: center;
+    font-size: larger;
+    color: #fff;
+}
