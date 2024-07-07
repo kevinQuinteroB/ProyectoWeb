@@ -1,0 +1,202 @@
+/*Parte de Jhon*/
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body, div, ul, nav, header, footer, a, li, label{
+    margin: 0;
+    padding: 0;
+}
+h1,h2,h3{
+    text-align: center;
+}
+
+.header{
+    background-color: #202020;
+    display: flex;  
+    justify-content: space-between;
+    align-items: center;
+    container-type: inline-size;
+    container-name: header;
+    position: sticky;
+    top: 0;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.header__logo-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+}
+.header__logo{
+    max-width: 100%;
+    width: 60px;
+    margin: 5px 10px;
+}
+.header__search-container{  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 55%;
+}
+
+.form-inline{
+    background-color: #202020;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.btn-outline-success{
+    color: #ffffffc0;
+    border-color: #9700a5;
+}
+
+.btn-outline-success:hover{
+    background-color: #474747;
+}
+.header__nav-container{
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+.btn-secondary{
+    margin: 5px;
+
+    background-color: #202020;
+    border: none;
+    color: #ffffffc0;
+}
+.btn:hover{
+    color: #fff;
+}
+.header__user-container{
+    background-color: #474747;
+    margin: 10px;
+    width: 9dvh;
+    height: 8dvh;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bi-person-fill{
+    color: #ffffffc0;
+}
+
+.bi-person-fill:hover{
+    color: #fff;
+ }
+
+.menu-btn{
+    display: none;
+}
+@media (max-width: 800px) {
+
+    .header__nav-container,
+    .header__user-container {
+       display: none; /* Ocultar en pantallas pequeñas */
+    }
+    
+    .menu-btn {
+       display: block; 
+       background-color: transparent;
+       color: #fff;
+       border: none;
+       font-size: 30px;
+       margin: 5px;
+    }
+    
+    .dropdown-active .header__nav-container{
+        display: flex; 
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        background-color: #202020;
+        border: 1px solid #474747;
+        border-radius: 10px;
+        z-index: 1000;
+        width: auto; 
+        height: 200px;
+    }
+    
+    .dropdown-active .header__user-container{
+        display: flex; 
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 60px;
+        right: 35px;
+        background-color: #202020;
+        border: 1px solid #474747;
+        border-radius: 10px;
+        z-index: 1000;
+        width: 50px; 
+        height: 50px;
+    }
+}
+/*Portada*/
+
+body{
+    background-color: #474747;
+}
+
+.principal_image{
+    width: all;
+    max-width: 100%; 
+    height: auto; 
+    overflow: hidden;
+    background-color: #202020;
+    
+}
+#row-portada{
+    text-align: center;
+    height: auto;
+    z-index: 0;    
+}
+#portada{
+    height: 600px;
+    width: 1200px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: 12px;
+}
+/*Barra de botones*/
+.column-12{
+    text-align: right;
+    display: flexbox;
+    border: solid;
+    position: fixed;
+    top: 600px;
+    z-index: 1001;
+}
+.btn-outline-secondary{
+    border-color: #9700a5;
+    color: white;
+    background-color: #202020;
+}
+/*Zona de Juegos*/
+
+/*Genero*/
+.col-3{
+    background-color: #202020;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    color:white;
+    height: 2000px;
+}
+.col-9{
+    border:solid;
+}
