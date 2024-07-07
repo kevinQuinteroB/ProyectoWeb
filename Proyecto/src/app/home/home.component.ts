@@ -8,13 +8,16 @@ import { Component } from '@angular/core';
 export class HomeComponent {
 
 }
-document.addEventListener('DOMContentLoaded', () => {
-  const menuBtn = document.querySelector('.menu-btn') as HTMLButtonElement;
-  const header = document.querySelector('.header') as HTMLElement;
 
-  if (menuBtn && header) {
-    menuBtn.addEventListener('click', () => {
-      header.classList.toggle('dropdown-active');
-    });
-  }
+document.addEventListener('DOMContentLoaded', function() {
+  const barraSticky = document.getElementById('barraSticky');
+  const offsetTrigger = 600; // Ajusta este valor según tus necesidades
+
+  window.addEventListener('scroll', function() {
+      if (window.scrollY >= offsetTrigger) {
+          barraSticky?.classList.add('absolute');
+      } else {
+          barraSticky?.classList.remove('absolute');
+      }
+  });
 });
