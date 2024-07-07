@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Cascade;
 
 @Getter
 @Setter
@@ -17,19 +18,17 @@ public class Comentario {
     @Column(name = "idComentario")
     private long idComentario;
 
-    @Column(name="contenido")
+    @Column(name = "contenido")
     private String contenido;
 
-    @Column(name="valoracionJuego")
+    @Column(name = "valoracionJuego")
     private double valoracionJuego;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="idUsuario", nullable = false)
-    @JsonIgnoreProperties({"nombre", "apellido", "username", "edad", "email", "contrasena", "saldo", "sexo", "telefono"})
+    @JoinColumn(name = "idUsuario", nullable = false)
     private Usuario usuario;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="idJuego", nullable = false)
-    @JsonIgnoreProperties({"nombre", "descripcion","valoracion", "precio", "imagen", "descuento"})
+    @JoinColumn(name = "idJuego", nullable = false)
     private Juego juego;
 }

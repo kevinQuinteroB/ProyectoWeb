@@ -1,10 +1,19 @@
 package count.proyecto.web.demo_cliente.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import java.util.ArrayList;
+import java.util.HashSet;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import java.util.List;
+import java.util.Set;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -35,4 +44,18 @@ public class Juego {
 
     @Column(name = "descuento")
     private long descuento;
+
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "juego",cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Comentario> comentarios = new ArrayList<>();
+
+    public void addComentario(Comentario comentario) {
+        comentarios.add(comentario);
+        comentario.setJuego(this);
+    }
+    public void removeComentario(Comentario comentario) {
+        comentarios.remove(comentario);
+        comentario.setJuego(null);
+    }
 }
