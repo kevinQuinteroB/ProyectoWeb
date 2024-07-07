@@ -1,1 +1,78 @@
-<p>home works!</p>
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="stylesheet" href="home.component.css">
+</head>
+
+<body>
+  <!---Barra de Herramientas-->
+  <header class="header">
+
+    <div class="header__logo-container">
+      <img class="header__logo" src="https://i.ibb.co/PD8tW95/logito.png" alt="logito">
+    </div>
+
+    <div class="header__search-container">
+      <nav class="navbar navbar-light bg-light">
+        <form class="form-inline">
+          <input class="form-control mr-sm-2" type="search" placeholder="Buscar en la tienda" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+        </form>
+      </nav>
+    </div>
+
+    <div class="header__nav-container">
+      <button type="button" class="btn btn-secondary">Lista de Juegos</button>
+      <button type="button" class="btn btn-secondary">Carrito de Compras</button>
+    </div>
+
+    <div class="header__user-container">
+      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-fill"
+        viewBox="0 0 16 16">
+        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+      </svg>
+    </div>
+
+    <button class="menu-btn">=</button>
+
+  </header>
+  <main class="main">
+    <!--Portada-->
+    <div class="container-fluid" id="row-portada">
+      <div class="row">
+        <div class="principal_image">
+          <img src="https://i.ibb.co/NSW8Z84/imagemejor.jpg" alt="Portada" id="portada">
+        </div>
+      </div>
+    </div>
+    <!---Barra de botones-->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="column-12">
+          <button type="button" class="btn btn-outline-secondary">Ordenar</button>
+        </div>
+      </div>
+    </div>
+    <!--Zona de Juegos-->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-3">
+          Barcelona
+        </div>
+        <div class="col-9">
+          El mejor del mundo
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+  </main>
+
+</body>
