@@ -18,4 +18,8 @@ public class ComentarioService {
     public Comentario saveComentario(Comentario comentario){
         return comentarioRepository.save(comentario);
     }
+
+    public void deleteComentario(Comentario comentario){
+        comentarioRepository.delete(comentario);
+    }
 }
