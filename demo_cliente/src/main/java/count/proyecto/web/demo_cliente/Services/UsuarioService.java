@@ -17,4 +17,12 @@ public class UsuarioService {
     public Usuario saveUsuario(Usuario usuario){
         return usuarioRepository.save(usuario);
     }
+
+    public Boolean findByIdUsuario(Long idUsuario){
+        return  usuarioRepository.findByIdUsuario(idUsuario);
+    }
+
+    public void deleteById(Long idUsuario){
+        usuarioRepository.deleteById(idUsuario);
+    }
 }
