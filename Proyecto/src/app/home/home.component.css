@@ -178,8 +178,8 @@ body{
     text-align: right;
     display: flexbox;
     border: solid;
-    position: fixed;
-    top: 600px;
+    position: sticky;
+    top: 68px;
     z-index: 1001;
 }
 .btn-outline-secondary{
@@ -187,6 +187,11 @@ body{
     color: white;
     background-color: #202020;
 }
+
+.absolute {
+    position: fixed;
+}
+
 /*Zona de Juegos*/
 
 /*Genero*/
@@ -200,3 +205,4 @@ body{
 .col-9{
     border:solid;
 }
+
