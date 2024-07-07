@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Cascade;
 
 @Getter
 @Setter
@@ -24,6 +25,7 @@ public class Comentario {
     private double valoracionJuego;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinColumn(name="idUsuario", nullable = false)
     @JsonIgnoreProperties({"nombre", "apellido", "username", "edad", "email", "contrasena", "saldo", "sexo", "telefono"})
     private Usuario usuario;

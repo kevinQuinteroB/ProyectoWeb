@@ -6,6 +6,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
 @Setter
 @Entity
@@ -35,4 +38,16 @@ public class Juego {
 
     @Column(name = "descuento")
     private long descuento;
+
+    @OneToMany(mappedBy = "Juego",cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Comentario> comentarios = new ArrayList<>();
+
+    public void addComentario(Comentario comentario) {
+        comentarios.add(comentario);
+        comentario.setJuego(this);
+    }
+    public void removeComentario(Comentario comentario) {
+        comentarios.remove(comentario);
+        comentario.setJuego(null);
+    }
 }
