@@ -73,7 +73,7 @@
               
               <div class="row" style="margin-top: 2%;">
                 <div>
-                  <button type="button" class="btn btn-outline-danger" style="width:100%;" [disabled]="BotonDesabilitado" id="ElimiarCuenta">Elimiar cuenta</button>
+                  <button type="button" class="btn btn-outline-danger" style="width:100%;" id="ElimiarCuenta" (click)="BorrarUsuario(id)">Elimiar cuenta {{id}}</button>
                 </div>
                 
               </div>

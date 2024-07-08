@@ -112,7 +112,7 @@ export class LoginComponent {
     this.usuarioService.consultarUsuario(this.email, this.contrasena).subscribe(response => {
       console.log('Usuario registrado:', response);
       if (response != null) {
-        this.router.navigate(['/juego']);
+        this.router.navigate(['/home']);
       } else {
         console.error('Error al autenticar usuario:');
         this.mostrarModalError();

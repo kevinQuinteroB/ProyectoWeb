@@ -20,8 +20,14 @@ export class UsuarioService {
     );
   }
 
-  eliminarUsuario(idUsuario: number){
-    this.httpClient.delete<number>(`${this.baseURL}/login/${idUsuario}`);
+  eliminarUsuario(idUsuario: number): Observable<any> {
+    const url = `${this.baseURL}/login/delete/${idUsuario}`;
+    console.log(`Sending DELETE request to: ${url}`); // Agrega esta línea para depurar
+    return this.httpClient.delete(url).pipe(
+      tap(() => {
+        console.log(`Usuario Eliminado: ${idUsuario}`);
+      })
+    );
   }
 
   registrarUsuario(usuario:any): Observable<any>{
