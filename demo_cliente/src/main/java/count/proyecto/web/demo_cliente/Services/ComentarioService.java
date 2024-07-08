@@ -42,4 +42,14 @@ public class ComentarioService {
     public void deleteById(Long idComentario) {
         comentarioRepository.deleteById(idComentario);
     }
+
+    public Comentario updateComentario(Long idComentario, Comentario comentarioActualizado) {
+        Comentario comentarioExistente = comentarioRepository.findById(idComentario)
+                .orElseThrow(() -> new IllegalArgumentException("Comentario no encontrado con ID: " + idComentario));
+
+        comentarioExistente.setContenido(comentarioActualizado.getContenido());
+        comentarioExistente.setValoracionJuego(comentarioActualizado.getValoracionJuego());
+
+        return comentarioRepository.save(comentarioExistente);
+    }
 }
