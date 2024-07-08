@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UsuarioService } from '../usuario.service';
 import { Usuario } from '../usuario';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-perfiljugador',
@@ -10,7 +11,7 @@ import { Usuario } from '../usuario';
 
 export class PerfiljugadorComponent {
 
-  constructor(private usuarioService: UsuarioService){
+  constructor(private usuarioService: UsuarioService, private router: Router){
   }
   
   apellido:string = "No Registrado";
@@ -22,6 +23,8 @@ export class PerfiljugadorComponent {
   sexo:string = "No Registrado";
   telefono:string = "No Registrado";
   username:string = "No Registrado";
+  id_usuario:number;
+  BotonDesabilitado: boolean = true;
 
   usuarioRegistrado: Usuario | null = null;
 
@@ -39,7 +42,14 @@ export class PerfiljugadorComponent {
       this.telefono = this.usuarioRegistrado.telefono.toString();
       this.username = this.usuarioRegistrado.username;
       this.apellido = this.usuarioRegistrado.apellido;
+      this.id_usuario = this.usuarioRegistrado.id_usuario;
+      this.BotonDesabilitado = false;
     }
   }
   
+  BorrarUsuario(id_usuario: number){
+    this.usuarioService.eliminarUsuario(id_usuario);
+    this.router.navigate(['/login']);
+  }
+
 }

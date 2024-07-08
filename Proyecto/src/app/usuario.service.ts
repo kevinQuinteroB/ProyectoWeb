@@ -19,7 +19,11 @@ export class UsuarioService {
       })
     );
   }
-  
+
+  eliminarUsuario(idUsuario: number){
+    this.httpClient.delete<number>(`${this.baseURL}/login/${idUsuario}`);
+  }
+
   registrarUsuario(usuario:any): Observable<any>{
     return this.httpClient.post(`${this.baseURL}/login`, usuario);
   }
