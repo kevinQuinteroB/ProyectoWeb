@@ -31,5 +31,12 @@ public class ComentarioController {
         Comentario nuevoComentario = comentarioService.save(idUsuario, idJuego, comentario);
         return ResponseEntity.status(HttpStatus.CREATED).body(nuevoComentario);
     }
+
+    @DeleteMapping("/eliminar/{idComentario}")
+    public ResponseEntity<Void> eliminarComentario(@PathVariable Long idComentario) {
+        comentarioService.deleteById(idComentario);
+        return ResponseEntity.noContent().build();
+    }
+    
 }
 
