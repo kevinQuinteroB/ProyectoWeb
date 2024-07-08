@@ -18,7 +18,7 @@ public class UsuarioService {
         return usuarioRepository.save(usuario);
     }
 
-    public Boolean findByIdUsuario(Long idUsuario){
+    public Usuario findByIdUsuario(Long idUsuario){
         return  usuarioRepository.findByIdUsuario(idUsuario);
     }
 

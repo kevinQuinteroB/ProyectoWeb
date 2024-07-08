@@ -23,14 +23,10 @@ public class UsuarioController {
         return ResponseEntity.ok(newUsuario);
     }
 
-    @DeleteMapping("login/{id}")
-    public ResponseEntity<Void> deleteUsuario(@PathVariable Long id){
-        if (usuarioService.findByIdUsuario(id)){git ad
-            usuarioService.deleteById(id);
+    @DeleteMapping("login/delete/{idUsuario}")
+    public ResponseEntity<Void> deleteUsuario(@PathVariable Long idUsuario){
+            usuarioService.deleteById(idUsuario);
             return ResponseEntity.noContent().build();
-        }else {
-            return ResponseEntity.notFound().build();
-        }
-    }
 
     }
+}
