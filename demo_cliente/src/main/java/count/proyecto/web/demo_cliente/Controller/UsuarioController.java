@@ -27,6 +27,5 @@ public class UsuarioController {
     public ResponseEntity<Void> deleteUsuario(@PathVariable Long idUsuario){
             usuarioService.deleteById(idUsuario);
             return ResponseEntity.noContent().build();
-
     }
 }
