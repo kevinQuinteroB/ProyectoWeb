@@ -38,12 +38,12 @@ public class ComentarioController {
         return ResponseEntity.noContent().build();
     }
 
-    @PutMapping("/actualizar/{id}")
+    @PutMapping("/actualizar/{idComentario}")
     public ResponseEntity<Comentario> actualizarComentario(
-            @PathVariable Long id,
+            @PathVariable Long idComentario,
             @RequestBody Comentario comentario
     ) {
-        Comentario comentarioActualizado = comentarioService.updateComentario(id, comentario);
+        Comentario comentarioActualizado = comentarioService.updateComentario(idComentario, comentario);
         return ResponseEntity.ok(comentarioActualizado);
     }
 }
