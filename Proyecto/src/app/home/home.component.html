@@ -41,19 +41,31 @@
 
   </header>
   <main class="main">
+
     <!--Portada-->
-    <div class="container-fluid" id="row-portada">
+    <div class="container-fluid" id="row_portada">
       <div class="row">
         <div class="principal_image">
-          <img src="https://i.ibb.co/NSW8Z84/imagemejor.jpg" alt="Portada" id="portada">
+          <img src="https://i.ibb.co/zZQBc0G/Illustration.png" alt="Portada" id="portada">
         </div>
       </div>
     </div>
+
     <!---Barra de botones-->
     <div class="container-fluid">
       <div class="row">
         <div class="column-12" id="barraSticky">
-          <button type="button" class="btn btn-outline-secondary">Ordenar</button>
+
+          <div class="dropdown">
+            <button id="boton_orden"class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="true">
+              Ordernar Por:
+            </button>
+            <ul id= "options" class="dropdown-menu" style="display: none; position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 40px);" data-popper-placement="bottom-start">
+              <li><a class="dropdown-item" href="#">Nombre</a></li>
+              <li><a class="dropdown-item" href="#">Valoración</a></li>
+              <li><a class="dropdown-item" href="#">Precio</a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>

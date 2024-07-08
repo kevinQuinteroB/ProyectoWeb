@@ -17,7 +17,7 @@ h1,h2,h3{
 
 .header{
     background-color: #202020;
-    display: flex;  
+    display: flex;
     justify-content: space-between;
     align-items: center;
     container-type: inline-size;
@@ -26,6 +26,7 @@ h1,h2,h3{
     top: 0;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+    z-index: 2000;
 }
 .header__logo-container{
     display: flex;
@@ -38,7 +39,7 @@ h1,h2,h3{
     width: 60px;
     margin: 5px 10px;
 }
-.header__search-container{  
+.header__search-container{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -65,7 +66,7 @@ h1,h2,h3{
     width: 25%;
     display: flex;
     justify-content: center;
-    align-items: center;    
+    align-items: center;
 }
 .btn-secondary{
     margin: 5px;
@@ -105,18 +106,18 @@ h1,h2,h3{
     .header__user-container {
        display: none; /* Ocultar en pantallas pequeñas */
     }
-    
+
     .menu-btn {
-       display: block; 
+       display: block;
        background-color: transparent;
        color: #fff;
        border: none;
        font-size: 30px;
        margin: 5px;
     }
-    
+
     .dropdown-active .header__nav-container{
-        display: flex; 
+        display: flex;
         flex-direction: column;
         align-items: center;
         position: absolute;
@@ -125,13 +126,13 @@ h1,h2,h3{
         background-color: #202020;
         border: 1px solid #474747;
         border-radius: 10px;
-        z-index: 1000;
-        width: auto; 
+        z-index: 1003;
+        width: auto;
         height: 200px;
     }
-    
+
     .dropdown-active .header__user-container{
-        display: flex; 
+        display: flex;
         flex-direction: column;
         align-items: center;
         position: absolute;
@@ -140,8 +141,8 @@ h1,h2,h3{
         background-color: #202020;
         border: 1px solid #474747;
         border-radius: 10px;
-        z-index: 1000;
-        width: 50px; 
+        z-index: 1003;
+        width: 50px;
         height: 50px;
     }
 }
@@ -153,16 +154,21 @@ body{
 
 .principal_image{
     width: all;
-    max-width: 100%; 
-    height: auto; 
+    max-width: 100%;
+    height: auto;
     overflow: hidden;
-    background-color: #202020;
-    
+    background-color: #474747;
+
 }
-#row-portada{
+#row_portada{
     text-align: center;
     height: auto;
-    z-index: 0;    
+    position: sticky;
+    top: 70px;
+}
+.fixed{
+    position: fixed;
+    z-index: 0;
 }
 #portada{
     height: 600px;
@@ -171,25 +177,33 @@ body{
     border-bottom-right-radius: 10px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    box-shadow: 12px;
 }
 /*Barra de botones*/
 .column-12{
     text-align: right;
-    display: flexbox;
     border: solid;
     position: sticky;
     top: 68px;
-    z-index: 1001;
-}
-.btn-outline-secondary{
-    border-color: #9700a5;
-    color: white;
-    background-color: #202020;
+    z-index: 1003;
 }
 
 .absolute {
     position: fixed;
+}
+.dropdown-item{
+    text-align: center;
+    text-decoration: solid;
+    color:white;
+    background-color: #474747;
+    border: black solid 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.dropdown-menu{
+    background: none;
+    border: none;
 }
 
 /*Zona de Juegos*/
@@ -201,8 +215,11 @@ body{
     border-top-right-radius: 10px;
     color:white;
     height: 2000px;
+    z-index: 1;
 }
 .col-9{
     border:solid;
+    z-index: 1;
 }
+
 
