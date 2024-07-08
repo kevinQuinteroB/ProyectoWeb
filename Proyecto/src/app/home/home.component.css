@@ -1,21 +1,32 @@
 /*Parte de Jhon*/
-*{
+* {
     box-sizing: border-box;
 }
 
-body{
+body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-body, div, ul, nav, header, footer, a, li, label{
+body,
+div,
+ul,
+nav,
+header,
+footer,
+a,
+li,
+label {
     margin: 0;
     padding: 0;
 }
-h1,h2,h3{
+
+h1,
+h2,
+h3 {
     text-align: center;
 }
 
-.header{
+.header {
     background-color: #202020;
     display: flex;
     justify-content: space-between;
@@ -28,25 +39,28 @@ h1,h2,h3{
     border-bottom-right-radius: 10px;
     z-index: 2000;
 }
-.header__logo-container{
+
+.header__logo-container {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 20%;
 }
-.header__logo{
+
+.header__logo {
     max-width: 100%;
     width: 60px;
     margin: 5px 10px;
 }
-.header__search-container{
+
+.header__search-container {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 55%;
 }
 
-.form-inline{
+.form-inline {
     background-color: #202020;
     display: flex;
     justify-content: center;
@@ -54,31 +68,35 @@ h1,h2,h3{
     width: 100%;
 }
 
-.btn-outline-success{
+.btn-outline-success {
     color: #ffffffc0;
     border-color: #9700a5;
 }
 
-.btn-outline-success:hover{
+.btn-outline-success:hover {
     background-color: #474747;
 }
-.header__nav-container{
+
+.header__nav-container {
     width: 25%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.btn-secondary{
+
+.btn-secondary {
     margin: 5px;
 
     background-color: #202020;
     border: none;
     color: #ffffffc0;
 }
-.btn:hover{
+
+.btn:hover {
     color: #fff;
 }
-.header__user-container{
+
+.header__user-container {
     background-color: #474747;
     margin: 10px;
     width: 9dvh;
@@ -89,34 +107,36 @@ h1,h2,h3{
     align-items: center;
 }
 
-.bi-person-fill{
+.bi-person-fill {
     color: #ffffffc0;
 }
 
-.bi-person-fill:hover{
+.bi-person-fill:hover {
     color: #fff;
- }
+}
 
-.menu-btn{
+.menu-btn {
     display: none;
 }
+
 @media (max-width: 800px) {
 
     .header__nav-container,
     .header__user-container {
-       display: none; /* Ocultar en pantallas pequeñas */
+        display: none;
+        /* Ocultar en pantallas pequeñas */
     }
 
     .menu-btn {
-       display: block;
-       background-color: transparent;
-       color: #fff;
-       border: none;
-       font-size: 30px;
-       margin: 5px;
+        display: block;
+        background-color: transparent;
+        color: #fff;
+        border: none;
+        font-size: 30px;
+        margin: 5px;
     }
 
-    .dropdown-active .header__nav-container{
+    .dropdown-active .header__nav-container {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -131,7 +151,7 @@ h1,h2,h3{
         height: 200px;
     }
 
-    .dropdown-active .header__user-container{
+    .dropdown-active .header__user-container {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -146,13 +166,14 @@ h1,h2,h3{
         height: 50px;
     }
 }
+
 /*Portada*/
 
-body{
+body {
     background-color: #474747;
 }
 
-.principal_image{
+.principal_image {
     width: all;
     max-width: 100%;
     height: auto;
@@ -160,17 +181,20 @@ body{
     background-color: #474747;
 
 }
-#row_portada{
+
+#row_portada {
     text-align: center;
     height: auto;
     position: sticky;
     top: 70px;
 }
-.fixed{
+
+.fixed {
     position: fixed;
     z-index: 0;
 }
-#portada{
+
+#portada {
     height: 600px;
     width: 1200px;
     border-bottom-left-radius: 10px;
@@ -178,10 +202,10 @@ body{
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
+
 /*Barra de botones*/
-.column-12{
+.column-12 {
     text-align: right;
-    border: solid;
     position: sticky;
     top: 68px;
     z-index: 1003;
@@ -190,18 +214,17 @@ body{
 .absolute {
     position: fixed;
 }
-.dropdown-item{
+
+.dropdown-item {
     text-align: center;
     text-decoration: solid;
-    color:white;
+    color: white;
     background-color: #474747;
     border: black solid 2px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
 }
-.dropdown-menu{
+
+.dropdown-menu {
     background: none;
     border: none;
 }
@@ -209,17 +232,54 @@ body{
 /*Zona de Juegos*/
 
 /*Genero*/
-.col-3{
+.col-3 {
     background-color: #202020;
     border-bottom-right-radius: 10px;
     border-top-right-radius: 10px;
-    color:white;
-    height: 2000px;
+    color: white;
+    height: auto;
     z-index: 1;
 }
+
+.gender {
+    margin-top: 10%;
+    text-align: left;
+    margin-left: 5%;
+}
+
+.btn-group-vertical {
+    margin-left: 20%;
+    width: 70%;
+    margin-bottom: 5%;
+}
+
+.btn-primary {
+    background-color: #474747;
+    text-align: left;
+    border: none;
+    border-bottom: #251a25 5px solid;
+
+}
+
+/*Juegos*/
 .col-9{
-    border:solid;
     z-index: 1;
 }
+.gamesZone {
 
+    display: grid;
+    grid-template-columns:repeat(autofit,minmax(150px,1fr));
+    grid-template-rows:repeat(autofit,minmax(150px,1fr));
+    gap: 32px;
 
+    
+}
+
+.gamesZone > .portada {
+    border-radius: 8px;
+    width: 100%;
+    height: auto;
+    box-shadow: 0px 0px 30px black;
+    
+
+}
