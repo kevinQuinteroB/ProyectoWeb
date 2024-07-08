@@ -1,5 +1,6 @@
 package count.proyecto.web.demo_cliente.Controller;
 
+import count.proyecto.web.demo_cliente.Models.Comentario;
 import count.proyecto.web.demo_cliente.Models.Usuario;
 import count.proyecto.web.demo_cliente.Services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,5 +28,13 @@ public class UsuarioController {
     public ResponseEntity<Void> deleteUsuario(@PathVariable Long idUsuario){
             usuarioService.deleteById(idUsuario);
             return ResponseEntity.noContent().build();
+    }
+    @PutMapping("/actualizar/{idUsuario}")
+    public ResponseEntity<Void> updateSaldo(
+            @PathVariable Long idUsuario,
+            @RequestBody Usuario usuario
+    ) {
+        usuarioService.updateSaldo(idUsuario, usuario);
+        return ResponseEntity.noContent().build();
     }
 }

@@ -1,5 +1,6 @@
 package count.proyecto.web.demo_cliente.Services;
 
+import count.proyecto.web.demo_cliente.Models.Comentario;
 import count.proyecto.web.demo_cliente.Models.Usuario;
 import count.proyecto.web.demo_cliente.Repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,5 +25,14 @@ public class UsuarioService {
 
     public void deleteById(Long idUsuario){
         usuarioRepository.deleteById(idUsuario);
+    }
+
+    public void updateSaldo (Long idUsuario, Usuario usuarioActualizado) {
+        Usuario usuarioExistente = usuarioRepository.findById(idUsuario)
+                .orElseThrow(() -> new IllegalArgumentException("Comentario no encontrado con ID: " + idUsuario.toString()));
+
+        usuarioExistente.setSaldo(usuarioActualizado.getSaldo());
+
+        usuarioRepository.actualizarSaldo(idUsuario, usuarioActualizado.getSaldo());
     }
 }

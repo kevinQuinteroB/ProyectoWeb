@@ -46,5 +46,6 @@ public class ComentarioController {
         Comentario comentarioActualizado = comentarioService.updateComentario(idComentario, comentario);
         return ResponseEntity.ok(comentarioActualizado);
     }
+
 }
 
