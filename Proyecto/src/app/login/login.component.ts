@@ -24,6 +24,11 @@ export class LoginComponent {
     this.username = "";
     
   }
+
+  ngOnInit(){
+    this.usuarioService.borrarCache();
+  }
+
   titulo: String;
   mensaje: String;
 
