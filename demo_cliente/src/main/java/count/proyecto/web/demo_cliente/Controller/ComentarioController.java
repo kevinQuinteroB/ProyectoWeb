@@ -37,6 +37,14 @@ public class ComentarioController {
         comentarioService.deleteById(idComentario);
         return ResponseEntity.noContent().build();
     }
-    
+
+    @PutMapping("/actualizar/{idComentario}")
+    public ResponseEntity<Comentario> actualizarComentario(
+            @PathVariable Long idComentario,
+            @RequestBody Comentario comentario
+    ) {
+        Comentario comentarioActualizado = comentarioService.updateComentario(idComentario, comentario);
+        return ResponseEntity.ok(comentarioActualizado);
+    }
 }
 
