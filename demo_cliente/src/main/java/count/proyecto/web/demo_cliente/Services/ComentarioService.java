@@ -38,4 +38,8 @@ public class ComentarioService {
 
         return comentarioRepository.save(comentario);
     }
+
+    public void deleteById(Long idComentario) {
+        comentarioRepository.deleteById(idComentario);
+    }
 }
