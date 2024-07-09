@@ -19,4 +19,12 @@ export class ComentarioService {
   postComentariosByJuego(id_usuario: number, id_juego: number, comentario: Comentario): Observable<Comentario> {
     return this.http.post<Comentario>(`${this.apiUrl}/crear/${id_usuario}/${id_juego}`, comentario);
   }
+
+  deleteComentarioByJuego(id_comentario: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/eliminar/${id_comentario}`);
+  }
+
+  updateComentario(id_comentario: number, comentario: Comentario): Observable<Comentario> {
+    return this.http.put<Comentario>(`${this.apiUrl}/actualizar/${id_comentario}`, comentario);
+  }
 }

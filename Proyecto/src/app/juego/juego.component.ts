@@ -10,6 +10,8 @@ import { Comentario } from '../comentario';
 export class JuegoComponent implements OnInit {
   comentarios: Comentario[] = [];
   nuevoComentario: string = '';
+  comentarioEnEdicion: Comentario | null = null;
+  comentarioEditado: string = '';
   idUsuario: number = 0; // Reemplaza con el ID del usuario actual
   idJuego: number = 0; // Reemplaza con el ID del juego actual
 
@@ -32,24 +34,62 @@ export class JuegoComponent implements OnInit {
 
   enviarComentario(): void {
     const comentario: Comentario = {
-      idComentario: 0, // Este valor será ignorado por el backend al crear un nuevo comentario
+      idComentario: 0,
       contenido: this.nuevoComentario,
-      valoracionJuego: 0, // Puedes agregar lógica para la valoración si es necesario
-      usuario: { idUsuario: 0 } as any, // Solo necesitamos el ID del usuario
-      juego: { idJuego: 0 } as any // Solo necesitamos el ID del juego
+      valoracionJuego: 0,
+      usuario: { idUsuario: this.idUsuario } as any,
+      juego: { idJuego: this.idJuego } as any
     };
 
     this.comentarioService.postComentariosByJuego(this.idUsuario, this.idJuego, comentario).subscribe(
       (data: Comentario) => {
-        this.comentarios.push(data); // Agrega el nuevo comentario a la lista de comentarios
-        this.nuevoComentario = ''; // Limpia el textarea
+        this.comentarios.push(data);
+        this.nuevoComentario = '';
       },
       error => {
         console.error('Error al enviar el comentario', error);
       }
     );
   }
+
+  eliminarComentario(idComentario: number): void {
+    this.comentarioService.deleteComentarioByJuego(idComentario).subscribe(
+      () => {
+        this.comentarios = this.comentarios.filter(comentario => comentario.idComentario !== idComentario);
+      },
+      error => {
+        console.error('Error al eliminar el comentario', error);
+      }
+    );
+  }
+
+  iniciarEdicion(comentario: Comentario): void {
+    this.comentarioEnEdicion = comentario;
+    this.comentarioEditado = comentario.contenido;
+  }
+
+  actualizarComentario(idComentario: number): void {
+    if (this.comentarioEnEdicion) {
+      const comentarioActualizado: Comentario = {
+        ...this.comentarioEnEdicion,
+        contenido: this.comentarioEditado
+      };
+
+      this.comentarioService.updateComentario(idComentario, comentarioActualizado).subscribe(
+        (data: Comentario) => {
+          const index = this.comentarios.findIndex(comentario => comentario.idComentario === idComentario);
+          this.comentarios[index] = data;
+          this.comentarioEnEdicion = null;
+          this.comentarioEditado = '';
+        },
+        error => {
+          console.error('Error al actualizar el comentario', error);
+        }
+      );
+    }
+  }
 }
+
 
 
 

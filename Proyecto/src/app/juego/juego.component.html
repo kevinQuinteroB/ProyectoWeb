@@ -121,11 +121,17 @@
           <div class="container-lista">
             <ul id="listaComentarios">
               <li *ngFor="let comentario of comentarios">
-                <p>{{ comentario.contenido }}</p>
+                <p *ngIf="comentario !== comentarioEnEdicion">{{ comentario.contenido }}</p>
+                <textarea *ngIf="comentario === comentarioEnEdicion" [(ngModel)]="comentarioEditado"></textarea>
+                <button class="delete" (click)="eliminarComentario(comentario.idComentario)">X</button>
+                <button class="update" *ngIf="comentario !== comentarioEnEdicion" (click)="iniciarEdicion(comentario)">0</button>
+                <button class="update" *ngIf="comentario === comentarioEnEdicion" (click)="actualizarComentario(comentario.idComentario)">Guardar</button>
               </li>
             </ul>
           </div>
         </div>
+        
+        
 
       </div>
 

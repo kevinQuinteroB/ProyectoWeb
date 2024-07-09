@@ -488,10 +488,7 @@ h1,h2,h3{
 }
 
 
-
-
-
-
+/* ---------------------------- Main Responsive ---------------------------- */
 
 
 
@@ -516,3 +513,49 @@ h1,h2,h3{
 .table-container.visible {
     display: block; 
 }
+
+
+/* archivo juego.component.css */
+
+
+  
+#listaComentarios {
+    list-style-type: none;
+    padding: 0;
+}
+  
+#listaComentarios li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #fff;
+}
+  
+#listaComentarios p {
+    margin: 0;
+    flex-grow: 1;
+}
+  
+#listaComentarios button {
+    margin-left: 10px;
+    padding: 10px;
+    border: none;
+    color: #fff;
+    border-radius: 10px;
+}
+.delete{
+    background-color: #640855;
+}
+.delete:hover{
+    background-color: #410537;
+}
+.update{
+    background-color: #0059ff;
+}
+.update:hover{
+    background-color: #0039cc;
+}
+
+  
