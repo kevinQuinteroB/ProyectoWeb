@@ -264,6 +264,7 @@ body {
 /*Juegos*/
 .col-9{
     z-index: 1;
+    width: 74%;
 }
 .gamesZone {
     display: grid;
@@ -278,7 +279,7 @@ body {
 .gamesZone > .portada {
     border-radius: 8px;
     width: 100%;
-    height: auto;
+    height: 400px;
     box-shadow: 0px 0px 30px black;
     margin-left: 2%;
     transition: all .9 ease;

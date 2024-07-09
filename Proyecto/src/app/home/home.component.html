@@ -88,21 +88,21 @@
           </div>
         </div>
         <!--Juegos-->
-        <div class="col-9 row">
+        <div class="col-9 row" >
+          <ng-container *ngFor="let j of juego">
           <div class="gamesZone col-4" >
+            <img [src]="j.imagen" alt="Imagen-prueba" class="portada">           
+          </div>
+          <!--<div class="gamesZone col-4" >
             <img src="https://i.ibb.co/Fz7pt4N/imagen-2024-07-08-110248767.png" alt="Imagen-prueba" class="portada">           
           </div>
           <div class="gamesZone col-4" >
             <img src="https://i.ibb.co/Fz7pt4N/imagen-2024-07-08-110248767.png" alt="Imagen-prueba" class="portada">           
-          </div>
-          <div class="gamesZone col-4" >
-            <img src="https://i.ibb.co/Fz7pt4N/imagen-2024-07-08-110248767.png" alt="Imagen-prueba" class="portada">           
-          </div>
+          </div>-->
+        </ng-container>
         </div>
 
       </div>
-
-
     </div>
 
 

@@ -1,5 +1,7 @@
 import { Component, Renderer2 } from '@angular/core';
-
+import { Router } from '@angular/router';
+import { JuegoService } from '../juego.service';
+import { Juego } from '../juego';
 
 @Component({
   selector: 'app-home',
@@ -9,17 +11,18 @@ import { Component, Renderer2 } from '@angular/core';
 })
 
 export class HomeComponent {
-  change: Boolean =true;
+  change: Boolean = true;
+  juego:Juego[];
   constructor(
-    private renderer: Renderer2
-
+    private renderer: Renderer2,
+    private gameService: JuegoService
   ) {
 
     document.addEventListener('DOMContentLoaded', () => {
       const options = document.getElementById('options');
       var button = document.getElementById('boton_orden');
       button?.addEventListener('click', () => {
-        this.change=!this.change
+        this.change = !this.change
         if (!this.change) {
           this?.renderer.setStyle(options, 'display', 'block');
         }
@@ -30,6 +33,13 @@ export class HomeComponent {
 
     })
   }
+  ngOnInit(){
+    this.gameService.traerTodo().subscribe(Response => {
+      console.log('texto', Response);
+      this.juego=Response;
+    });
+  }
+  
 
 }
 
