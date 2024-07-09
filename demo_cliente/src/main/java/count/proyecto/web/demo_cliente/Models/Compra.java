@@ -19,7 +19,7 @@ public class Compra {
     private long idCompra;
 
     @Column(name = "totalCompra")
-    private long totalCompra;
+    private double totalCompra;
 
     @Column (name="fecha")
     private Date fecha;

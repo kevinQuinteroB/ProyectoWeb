@@ -2,8 +2,12 @@ import { Component, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 import { JuegoService } from '../juego.service';
 import { GeneroService } from '../genero.service';
+import { CompraService } from '../compra.service';
+import { UsuarioService } from '../usuario.service';
 import { Juego } from '../juego';
 import { Genero } from '../genero';
+import { Compra } from '../compra';
+import { Usuario } from '../usuario';
 
 @Component({
   selector: 'app-home',
@@ -16,11 +20,15 @@ export class HomeComponent {
   change: Boolean = true;
   juego:Juego[];
   gender:Genero[];
+  compras:Compra[];
+  sesionUsuario:Usuario|null=null;
   constructor(
     private renderer: Renderer2,
     private gameService: JuegoService,
     private genderService: GeneroService,
-    private router:Router
+    private router:Router,
+    private compraService:CompraService,
+    private usuarioService:UsuarioService
   ) {
 
     document.addEventListener('DOMContentLoaded', () => {
@@ -47,7 +55,21 @@ export class HomeComponent {
       console.log('Generos Cargados', Response);
       this.gender=Response;
     });
+    this.sesionUsuario=this.usuarioService.getUsuarioRegistrado()
+    if(this.sesionUsuario){
+      this.compraService.findAll(this.sesionUsuario.idUsuario).subscribe(Response => {
+        console.log('Generos Cargados', Response);
+        this.compras=Response;
+      });
+    }else{
+      this.compraService.findAll(-1).subscribe(Response => {
+        console.log('Generos Cargados', Response);
+        this.compras=Response;
+      });
+    }
+    
   }
+
   cerrarSesion(){
     this.router.navigate(['/login']);
   }
