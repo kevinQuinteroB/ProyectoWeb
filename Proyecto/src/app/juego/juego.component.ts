@@ -1,13 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { ComentarioService } from '../comentario.service';
 import { Comentario } from '../comentario';
+import { JuegoService } from '../juego.service';
+import { Juego } from '../juego';
+import { GeneroService } from '../genero.service';
+import { Genero } from '../genero';
 
 @Component({
   selector: 'app-juego',
   templateUrl: './juego.component.html',
   styleUrls: ['./juego.component.css']
 })
+
 export class JuegoComponent implements OnInit {
+  gender:Genero[];
+  juego: Juego | null = null;
   comentarios: Comentario[] = [];
   nuevoComentario: string = '';
   comentarioEnEdicion: Comentario | null = null;
@@ -15,11 +22,31 @@ export class JuegoComponent implements OnInit {
   idUsuario: number = 0; // Reemplaza con el ID del usuario actual
   idJuego: number = 0; // Reemplaza con el ID del juego actual
 
-  constructor(private comentarioService: ComentarioService) { }
+  constructor(
+    private genderService: GeneroService,
+    private juegoService: JuegoService,
+    private comentarioService: ComentarioService
+  ) { }
 
   ngOnInit(): void {
     this.getComentarios(this.idJuego);
+    this.getJuegoById(this.idJuego);
+    this.genderService.findAll().subscribe(Response => {
+      console.log('Generos Cargados', Response);
+      this.gender=Response;
+    });
   }
+  getJuegoById(idJuego: number): void {
+    this.juegoService.traerTodo().subscribe(
+      (juegos: Juego[]) => {
+        this.juego = juegos.find(juego => juego.idJuego === idJuego) || null;
+      },
+      error => {
+        console.error('Error al obtener los juegos', error);
+      }
+    );
+  }
+
 
   getComentarios(idJuego: number): void {
     this.comentarioService.getComentariosByJuego(idJuego).subscribe(

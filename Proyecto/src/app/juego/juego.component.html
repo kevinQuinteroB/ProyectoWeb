@@ -50,48 +50,41 @@
       <!---------- left ------------->
       <div class="main__left-container">
         <div class="main__navv">
-          <button type="button" class="btn main-secondary">Secondary</button>
-          <button type="button" class="btn main-secondary">Secondary</button>
-          <button type="button" class="btn main-secondary">Secondary</button>
+          <button *ngFor="let g of gender" type="button" class="btn main-secondary">{{ g.genero }}</button>
         </div>
       </div>
 
 
 
       <!---------- center ------------->
-      <div class="main__center-container">
-        <h1>Call Of Duty Black Ops</h1>
-        <h4>(Valoracion)</h4>
+
+      <div *ngIf="juego" class="main__center-container">
+        <h1>{{ juego.nombre }}</h1>
 
         <div class="main__center-img">
-          <img src="https://www.gamechampions.com/media/m1gft121/back-ops-cover.webp" alt="Imagen del Juego">
+          <img [src]="juego.imagen" alt="Imagen del Juego">
         </div>
 
         <div class="wrapper">
-
           <div class="button-container">
-            <button type="" class="btnn btn-2">GENERO</button>
+            <button type="" class="btnn btn-2">{{ juego.valoracion }}</button>
           </div>
           <div class="button-container">
-            <button class="btnn btn-2">PRECIO</button>
+            <button class="btnn btn-2">{{ juego.precio }}</button>
           </div>
           <div class="button-container">
-            <button class="btnn btn-2">DESCUENTO</button>
+            <button class="btnn btn-2">{{ juego.descuento }}</button>
           </div>
-
         </div>
-        
+
         <div class="main__center-descripcion">
-          <p class="center__descripcion"> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non, odio sint quasi
-            voluptatem laborum expedita dolores vitae ut perferendis rerum velit beatae, quam reiciendis nesciunt omnis.
-            Cum eos nulla sit!Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus explicabo rem, enim
-            alias voluptate quisquam eligendi ut perspiciatis omnis similique, nisi dicta aut, minus vel mollitia nemo
-            veritatis soluta est! Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur saepe error dolorem
-            optio porro, reprehenderit deleniti quibusdam, incidunt eveniet quasi ex atque dolore corrupti doloribus
-            ipsum. Harum iusto sit minima? Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, totam odio
-            vitae voluptas similique sequi eligendi est consequatur quod dolorem, explicabo officia ad debitis placeat
-            esse, et impedit omnis obcaecati! lo</p>
+          <p class="center__descripcion">{{ juego.descripcion }}</p>
         </div>
+      </div>
+
+      <!-- Mensaje mientras se carga el juego -->
+      <div *ngIf="!juego" class="loading-message">
+        <p>Cargando juego...</p>
       </div>
 
 
@@ -108,13 +101,15 @@
         </div>
 
 
-  
+
         <div class="comment-section">
           <div class="comment-input">
             <textarea [(ngModel)]="nuevoComentario" placeholder="Añadir comentario"></textarea>
             <button (click)="enviarComentario()" type="submit">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send-fill" viewBox="0 0 16 16">
-                <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471z"/>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send-fill"
+                viewBox="0 0 16 16">
+                <path
+                  d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471z" />
               </svg>
             </button>
           </div>
@@ -124,14 +119,16 @@
                 <p *ngIf="comentario !== comentarioEnEdicion">{{ comentario.contenido }}</p>
                 <textarea *ngIf="comentario === comentarioEnEdicion" [(ngModel)]="comentarioEditado"></textarea>
                 <button class="delete" (click)="eliminarComentario(comentario.idComentario)">X</button>
-                <button class="update" *ngIf="comentario !== comentarioEnEdicion" (click)="iniciarEdicion(comentario)">0</button>
-                <button class="update" *ngIf="comentario === comentarioEnEdicion" (click)="actualizarComentario(comentario.idComentario)">Guardar</button>
+                <button class="update" *ngIf="comentario !== comentarioEnEdicion"
+                  (click)="iniciarEdicion(comentario)">0</button>
+                <button class="update" *ngIf="comentario === comentarioEnEdicion"
+                  (click)="actualizarComentario(comentario.idComentario)">Guardar</button>
               </li>
             </ul>
           </div>
         </div>
-        
-        
+
+
 
       </div>
 

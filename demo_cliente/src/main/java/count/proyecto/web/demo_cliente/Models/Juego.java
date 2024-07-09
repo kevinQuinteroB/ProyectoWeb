@@ -10,10 +10,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import java.util.List;
-import java.util.Set;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Getter
 @Setter
@@ -58,4 +54,20 @@ public class Juego {
         comentarios.remove(comentario);
         comentario.setJuego(null);
     }
+
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "juego", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<juegoGenero> juegoGeneros = new ArrayList<>();
+
+    public void addJuegoGenero(juegoGenero juegoGenero) {
+        juegoGeneros.add(juegoGenero);
+        juegoGenero.setJuego(this);
+    }
+
+    public void removeJuegoGenero(juegoGenero juegoGenero) {
+        juegoGeneros.remove(juegoGenero);
+        juegoGenero.setJuego(null);
+    }
+
 }

@@ -258,6 +258,7 @@ h1,h2,h3{
     border: 1px solid #fff;
     color: #fff;
     animation: parpadear 1.5s infinite alternate backwards;
+    width: 200px;
 }
 
 .btn-2:hover{
@@ -314,12 +315,6 @@ h1,h2,h3{
     padding: 40px;
 }
 
-
-
-
-
-
-
 /*------------Derecha---------------*/
 
 .main__right-container{
@@ -333,7 +328,6 @@ h1,h2,h3{
     width: 28%;
     order: 2;
 }
-
 .main__right-img {
     margin-top: 50px;
     width: 100%;
@@ -341,20 +335,17 @@ h1,h2,h3{
     height: auto; 
     overflow: hidden;
 }
-
 .main__right-img img {
     width: 100%; 
     height: auto; 
     display: block; 
     border-radius: 20px;
 }
-
 .right-secondary{
     padding: 10px 20px;
     margin: 10px;
     border: 1px solid #fff;
 }
-
 .right__wrapper{
     display: flex;
     flex-direction: column;
@@ -362,7 +353,6 @@ h1,h2,h3{
     justify-content: center;
     margin-top: 10px;
 }
-
 .comment-section {
     margin-top: 45px;
     background-color: #3b3b3b;
@@ -370,13 +360,11 @@ h1,h2,h3{
     border-radius: 15px;
     box-shadow: 4px 4px 20px rgba(14, 2, 2, 0.5);
 }
-
 .comment-input {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
 }
-
 .comment-input textarea {
     flex-grow: 1;
     padding: 10px;
@@ -490,8 +478,6 @@ h1,h2,h3{
 
 /* ---------------------------- Main Responsive ---------------------------- */
 
-
-
 .table-container{
     display: none;
     position: fixed;
@@ -517,8 +503,6 @@ h1,h2,h3{
 
 /* archivo juego.component.css */
 
-
-  
 #listaComentarios {
     list-style-type: none;
     padding: 0;

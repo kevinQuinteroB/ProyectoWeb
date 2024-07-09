@@ -1,5 +1,6 @@
 package count.proyecto.web.demo_cliente.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,7 +10,7 @@ import lombok.Setter;
 @Setter
 @Entity
 @NoArgsConstructor
-@Table(name = "juegoGenero")
+@Table(name = "juego_genero")
 public class juegoGenero {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
