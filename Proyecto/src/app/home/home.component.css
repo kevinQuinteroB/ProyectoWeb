@@ -342,3 +342,21 @@ body {
 .btn-close{
     margin-right: 1%;
 }
+.modal-header{
+    margin:3%;
+}
+.btn-success,.btn-danger{
+    margin: 3px;
+}
+.modal-content{
+    border: white solid 2px;
+    background-color: #251a25;
+    color: #fff;
+}
+.upBounds{
+    margin: 2%;
+    border-radius: 10px;
+}
+.close{
+    border: 2px white solid;
+}

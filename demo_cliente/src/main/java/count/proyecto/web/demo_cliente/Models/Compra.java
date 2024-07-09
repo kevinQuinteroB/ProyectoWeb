@@ -1,6 +1,7 @@
 package count.proyecto.web.demo_cliente.Models;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,6 +17,9 @@ public class Compra {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "idCompra")
     private long idCompra;
+
+    @Column(name = "totalCompra")
+    private long totalCompra;
 
     @Column (name="fecha")
     private Date fecha;
