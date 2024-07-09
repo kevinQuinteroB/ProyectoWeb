@@ -7,16 +7,16 @@ import { Juego } from './juego';
   providedIn: 'root'
 })
 export class JuegoService {
-  private base_url= 'http://localhost:8080';
+  private base_url = 'http://localhost:8080';
   constructor(private httpClient: HttpClient) {
-      
+
   }
-  traerTodo():Observable<Juego[]>{
+  traerTodo(): Observable<Juego[]> {
     return this.httpClient.get<Juego[]>(`${this.base_url}/game/all`).pipe(
       tap(imgGame => {
-        console.log('Juego Cargado',imgGame);
+        console.log('Juego Cargado', imgGame);
       })
     );
-    
+
   }
 }

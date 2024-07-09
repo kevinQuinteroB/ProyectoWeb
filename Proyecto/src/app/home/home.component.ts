@@ -1,7 +1,9 @@
 import { Component, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 import { JuegoService } from '../juego.service';
+import { GeneroService } from '../genero.service';
 import { Juego } from '../juego';
+import { Genero } from '../genero';
 
 @Component({
   selector: 'app-home',
@@ -13,9 +15,12 @@ import { Juego } from '../juego';
 export class HomeComponent {
   change: Boolean = true;
   juego:Juego[];
+  gender:Genero[];
   constructor(
     private renderer: Renderer2,
-    private gameService: JuegoService
+    private gameService: JuegoService,
+    private genderService: GeneroService,
+    private router:Router
   ) {
 
     document.addEventListener('DOMContentLoaded', () => {
@@ -35,11 +40,17 @@ export class HomeComponent {
   }
   ngOnInit(){
     this.gameService.traerTodo().subscribe(Response => {
-      console.log('texto', Response);
+      console.log('Juegos Cargados', Response);
       this.juego=Response;
     });
+    this.genderService.findAll().subscribe(Response => {
+      console.log('Generos Cargados', Response);
+      this.gender=Response;
+    });
   }
-  
+  cerrarSesion(){
+    this.router.navigate(['/login']);
+  }
 
 }
 

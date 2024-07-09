@@ -14,7 +14,6 @@ import lombok.Setter;
 public class Genero {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-
     @Column(name = "idGenero")
     private long idGenero;
 

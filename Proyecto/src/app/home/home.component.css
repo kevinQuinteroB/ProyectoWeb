@@ -55,6 +55,7 @@ h3 {
 
 .header__search-container {
     display: flex;
+    margin-left: 16%;
     justify-content: center;
     align-items: center;
     width: 55%;
@@ -82,6 +83,7 @@ h3 {
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
 .btn-secondary {
@@ -107,6 +109,17 @@ h3 {
     align-items: center;
 }
 
+.header__user-container2 {
+    background-color: #474747;
+    margin: 10px;
+    width: 9dvh;
+    height: 8dvh;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .bi-person-fill {
     color: #ffffffc0;
 }
@@ -122,7 +135,8 @@ h3 {
 @media (max-width: 800px) {
 
     .header__nav-container,
-    .header__user-container {
+    .header__user-container,
+    .header__user-container2 {
         display: none;
         /* Ocultar en pantallas pequeñas */
     }
@@ -139,7 +153,6 @@ h3 {
     .dropdown-active .header__nav-container {
         display: flex;
         flex-direction: column;
-        align-items: center;
         position: absolute;
         top: 60px;
         right: 10px;
@@ -148,7 +161,7 @@ h3 {
         border-radius: 10px;
         z-index: 1003;
         width: auto;
-        height: 200px;
+        height: 160px;
     }
 
     .dropdown-active .header__user-container {
@@ -157,6 +170,21 @@ h3 {
         align-items: center;
         position: absolute;
         top: 60px;
+        right: 35px;
+        background-color: #202020;
+        border: 1px solid #474747;
+        border-radius: 10px;
+        z-index: 1003;
+        width: 50px;
+        height: 50px;
+    }
+
+    .dropdown-active .header__user-container2 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 150px;
         right: 35px;
         background-color: #202020;
         border: 1px solid #474747;
@@ -262,25 +290,55 @@ body {
 }
 
 /*Juegos*/
-.col-9{
+.col-9 {
     z-index: 1;
     width: 74%;
 }
+
 .gamesZone {
     display: grid;
-    grid-template-columns:repeat(autofit,minmax(150px,1fr));
+    grid-template-columns: repeat(autofit, minmax(150px, 1fr));
     gap: 32px;
-    
-}
-.portada:hover{
-    scale: 110%;
+
 }
 
-.gamesZone > .portada {
+.portada:hover {
+    scale: 110%;
+    z-index: 4;
+}
+
+.gamesZone>.portada {
     border-radius: 8px;
     width: 100%;
     height: 400px;
     box-shadow: 0px 0px 30px black;
     margin-left: 2%;
     transition: all .9 ease;
+}
+
+/* Zona de Creditos*/
+
+.credits {
+    z-index: 1;
+    background-color: #202020;
+    color: white;
+    margin-top: 1.6%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.text {
+    margin-top: 1%;
+}
+
+/*Carrito*/
+.modal-dialog {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin-left: 33%;
+}
+.btn-close{
+    margin-right: 1%;
 }
