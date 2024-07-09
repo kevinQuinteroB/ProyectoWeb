@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Usuario } from './usuario';
-import * as bootstrap from 'bootstrap';
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +27,14 @@ export class UsuarioService {
         console.log(`Usuario Eliminado: ${idUsuario}`);
       })
     );
+  }
+
+  actualizarSaldo(usuario:Usuario, idUsuario: number): Observable<any>{
+    return this.httpClient.put(`${this.baseURL}/actualizar/${idUsuario}`, usuario).pipe(
+      tap(()=>{
+        console.log(`Usuario Actualizado: ${usuario}`)
+      })
+    )
   }
 
   registrarUsuario(usuario:any): Observable<any>{

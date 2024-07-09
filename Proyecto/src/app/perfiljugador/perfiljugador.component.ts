@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { UsuarioService } from '../usuario.service';
 import { Usuario } from '../usuario';
 import { Router } from '@angular/router';
+import * as bootstrap from 'bootstrap';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-perfiljugador',
@@ -11,7 +13,7 @@ import { Router } from '@angular/router';
 
 export class PerfiljugadorComponent {
 
-  constructor(private usuarioService: UsuarioService, private router: Router){
+  constructor(private usuarioService: UsuarioService, private router: Router, private location:Location){
   }
   
   apellido:string = "No Registrado";
@@ -45,6 +47,42 @@ export class PerfiljugadorComponent {
       this.apellido = this.usuarioRegistrado.apellido;     
       this.BotonDesabilitado = false;
     }
+  }
+
+
+  RecargarSaldoMenu(){
+    const modalElement = document.getElementById('RecargarSaldo');
+    if (modalElement) {
+      const myModal = new bootstrap.Modal(modalElement);
+      myModal.show();
+    }
+  }
+
+
+  RecargarSaldo(saldoRecarga: number, idUsuario: number):void{
+    const usuario:Usuario = {
+      contrasena: this.contrasena,
+      edad: Number(this.edad),
+      email: this.email,
+      nombre: this.nombre,
+      saldo: Number(this.saldo) + saldoRecarga,
+      sexo: this.sexo,
+      telefono: Number(this.telefono),
+      username: this.username,
+      apellido: this.apellido,
+      idUsuario: this.id
+    }
+    this.usuarioService.actualizarSaldo(usuario, idUsuario).subscribe(
+      Response =>{
+        console.log(`Usuario Actualizado: ${usuario}`)
+      },
+      error => {
+        console.error(`Error al actualizar usuario: ${error}`);
+      }
+    )
+    localStorage.setItem('usuarioRegistrado', JSON.stringify(usuario));
+    this.location.go(this.location.path());
+    window.location.reload();
   }
   
   BorrarUsuario(idUsuario: number): void {
