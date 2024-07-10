@@ -15,4 +15,8 @@ public class CompraService {
     public List<Compra> findByid_usuario(Long idUsuario){
         return compraRepository.findByid_usuario(idUsuario);
     }
+
+    public List<Compra> carritoUsuario(Long idUsuario){
+        return compraRepository.carritoUsuario(idUsuario);
+    }
 }

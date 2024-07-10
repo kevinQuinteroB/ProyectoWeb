@@ -23,4 +23,9 @@ public class CompraController {
         return ResponseEntity.ok(items);
     }
 
+    @GetMapping("/inventario/{id_usuario}")
+    public ResponseEntity<List<Compra>> getInventario(@PathVariable Long id_usuario){
+        List<Compra> compras = compraService.carritoUsuario(id_usuario);
+        return  ResponseEntity.ok(compras);
+    }
 }
