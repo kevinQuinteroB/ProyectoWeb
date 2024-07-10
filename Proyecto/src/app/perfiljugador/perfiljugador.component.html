@@ -112,12 +112,15 @@
         </div>
         <div>
           <div class="row articulos">
-            <div class="col-2">
-              <img class="imagen" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiZZ3TK84rXnOPf2Ea0_NegPWTI7YY6daoow&s"/>
+            <ng-container *ngFor="let compra of compra">
+              <div class="col-2">
+                <img class="imagen" [src]="compra.juego.imagen"/>
+              </div>
+              <div class="col-8 tituloJuego">
+                {{compra.juego.nombre}}
             </div>
-            <div class="col-8 tituloJuego">
-                Nombre del juego
-            </div>
+            <div class="col-2"></div>
+            </ng-container>
             <div class="col-2">
               <img class="imagen" src=""/>
             </div>

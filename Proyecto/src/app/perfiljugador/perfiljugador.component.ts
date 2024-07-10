@@ -4,6 +4,8 @@ import { Usuario } from '../usuario';
 import { Router } from '@angular/router';
 import * as bootstrap from 'bootstrap';
 import { Location } from '@angular/common';
+import { CompraService } from '../compra.service';
+import { Compra } from '../compra';
 
 @Component({
   selector: 'app-perfiljugador',
@@ -13,8 +15,12 @@ import { Location } from '@angular/common';
 
 export class PerfiljugadorComponent {
 
-  constructor(private usuarioService: UsuarioService, private router: Router, private location:Location){
-  }
+  constructor(
+    private usuarioService: UsuarioService,
+    private router: Router, 
+    private location:Location,
+    private compraService: CompraService
+  ){}
   
   apellido:string = "No Registrado";
   contrasena:string = "No Registrado";
@@ -27,6 +33,7 @@ export class PerfiljugadorComponent {
   username:string = "No Registrado";
   id:number = 0;
   BotonDesabilitado: boolean = true;
+  compra: Compra[];
 
   usuarioRegistrado: Usuario | null = null;
 
@@ -46,6 +53,15 @@ export class PerfiljugadorComponent {
       this.id = this.usuarioRegistrado.idUsuario;
       this.apellido = this.usuarioRegistrado.apellido;     
       this.BotonDesabilitado = false;
+      this.compraService.carrito(this.id).subscribe(
+        compra => {
+          this.compra = compra;
+          console.log("El inventario del usuario es:", compra)
+        },
+        error => {
+          console.error('Error al obtener los datos del carrito', error);
+        }
+      );
     }
   }
 
