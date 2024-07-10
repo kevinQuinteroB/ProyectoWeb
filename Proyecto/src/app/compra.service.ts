@@ -17,4 +17,12 @@ export class CompraService {
     );
 
   }
+
+  carrito(id_User:number): Observable<Compra[]>{
+    return this.httpClient.get<Compra[]>(`${this.url}/buy/inventario/${id_User}`).pipe(
+      tap( inventario => {
+        console.log("Inventario Cargado", inventario);
+      })
+    );
+  }
 }
