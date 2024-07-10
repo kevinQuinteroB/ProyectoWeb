@@ -15,6 +15,7 @@ import java.util.List;
 @Entity
 @NoArgsConstructor
 @Table(name = "Genero")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Genero {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,15 +30,15 @@ public class Genero {
 
     @JsonIgnore
     @OneToMany(mappedBy = "genero", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<juegoGenero> juegoGeneros = new ArrayList<>();
+    private List<JuegoGenero> JuegoGeneros = new ArrayList<>();
 
-    public void addJuegoGenero(juegoGenero juegoGenero) {
-        juegoGeneros.add(juegoGenero);
+    public void addJuegoGenero(JuegoGenero juegoGenero) {
+        JuegoGeneros.add(juegoGenero);
         juegoGenero.setGenero(this);
     }
 
-    public void removeJuegoGenero(juegoGenero juegoGenero) {
-        juegoGeneros.remove(juegoGenero);
+    public void removeJuegoGenero(JuegoGenero juegoGenero) {
+        JuegoGeneros.remove(juegoGenero);
         juegoGenero.setGenero(null);
     }
 }

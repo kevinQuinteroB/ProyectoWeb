@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.ArrayList;
-import java.util.HashSet;
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -58,15 +58,15 @@ public class Juego {
 
     @JsonIgnore
     @OneToMany(mappedBy = "juego", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<juegoGenero> juegoGeneros = new ArrayList<>();
+    private List<JuegoGenero> JuegoGeneros = new ArrayList<>();
 
-    public void addJuegoGenero(juegoGenero juegoGenero) {
-        juegoGeneros.add(juegoGenero);
+    public void addJuegoGenero(JuegoGenero juegoGenero) {
+        JuegoGeneros.add(juegoGenero);
         juegoGenero.setJuego(this);
     }
 
-    public void removeJuegoGenero(juegoGenero juegoGenero) {
-        juegoGeneros.remove(juegoGenero);
+    public void removeJuegoGenero(JuegoGenero juegoGenero) {
+        JuegoGeneros.remove(juegoGenero);
         juegoGenero.setJuego(null);
     }
 

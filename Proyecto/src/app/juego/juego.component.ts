@@ -5,6 +5,8 @@ import { JuegoService } from '../juego.service';
 import { Juego } from '../juego';
 import { GeneroService } from '../genero.service';
 import { Genero } from '../genero';
+import { JuegoGeneroService } from '../juego-genero.service';
+import { JuegoGenero } from '../juego-genero';
 
 @Component({
   selector: 'app-juego',
@@ -13,7 +15,8 @@ import { Genero } from '../genero';
 })
 
 export class JuegoComponent implements OnInit {
-  gender:Genero[];
+  valoracionGeneral: number = 0;
+  juegoGeneros: JuegoGenero[] = []; 
   juego: Juego | null = null;
   comentarios: Comentario[] = [];
   nuevoComentario: string = '';
@@ -25,17 +28,28 @@ export class JuegoComponent implements OnInit {
   constructor(
     private genderService: GeneroService,
     private juegoService: JuegoService,
-    private comentarioService: ComentarioService
+    private comentarioService: ComentarioService,
+    private juegoGeneroService: JuegoGeneroService
   ) { }
 
   ngOnInit(): void {
+    this.getjuegoGenerosByJuego(this.idJuego); 
     this.getComentarios(this.idJuego);
     this.getJuegoById(this.idJuego);
-    this.genderService.findAll().subscribe(Response => {
-      console.log('Generos Cargados', Response);
-      this.gender=Response;
-    });
   }
+
+  getjuegoGenerosByJuego(idJuego: number): void {
+    this.juegoGeneroService.findAll(idJuego).subscribe(
+      (data: JuegoGenero[]) => {
+        this.juegoGeneros = data;
+      },
+      error => {
+        console.error('Error al obtener los géneros del juego', error);
+      }
+    );
+  }
+
+
   getJuegoById(idJuego: number): void {
     this.juegoService.traerTodo().subscribe(
       (juegos: Juego[]) => {
@@ -52,11 +66,21 @@ export class JuegoComponent implements OnInit {
     this.comentarioService.getComentariosByJuego(idJuego).subscribe(
       (data: Comentario[]) => {
         this.comentarios = data;
+        this.calcularValoracionGeneral();
       },
       error => {
         console.error('Error al obtener los comentarios', error);
       }
     );
+  }
+
+  calcularValoracionGeneral(): void {
+    if (this.comentarios.length > 0) {
+      const totalValoraciones = this.comentarios.reduce((acc, comentario) => acc + comentario.valoracionJuego, 0);
+      this.valoracionGeneral = totalValoraciones / this.comentarios.length;
+    } else {
+      this.valoracionGeneral = 0;
+    }
   }
 
   enviarComentario(): void {
@@ -115,6 +139,7 @@ export class JuegoComponent implements OnInit {
       );
     }
   }
+
 }
 
 
@@ -134,14 +159,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   
-document.addEventListener('DOMContentLoaded', function () {
-  const generoButton = document.querySelector('.generoBtn') as HTMLButtonElement;
-  const tableContainer = document.querySelector('.table-container') as HTMLElement;
+  document.addEventListener('DOMContentLoaded', function () {
+    const generoButton = document.querySelector('.generoBtn') as HTMLButtonElement;
+    const tableContainer = document.querySelector('.table-container') as HTMLElement;
 
-  generoButton.addEventListener('click', () => {
-    tableContainer.classList.toggle('visible');
+    generoButton.addEventListener('click', () => {
+      tableContainer.classList.toggle('visible');
+    });
   });
-});
-
 
 

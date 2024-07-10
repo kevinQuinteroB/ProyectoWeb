@@ -15,7 +15,6 @@ h1,h2,h3{
     text-align: center;
 }
 
-
 /* ---------------------------- Header Section ---------------------------- */
 
 .header{
@@ -189,6 +188,9 @@ h1,h2,h3{
     top: 150px;
     align-items: center;
 }
+.main__navv button{
+    width: 140px;
+}
 
 .main-secondary{
     margin: 5px;
@@ -204,11 +206,6 @@ h1,h2,h3{
 .main-secondary:hover{
     border: 1px solid #fff;
 }
-
-
-
-
-
 
 /*------------Centro---------------*/
 .main__center-container{
@@ -346,12 +343,22 @@ h1,h2,h3{
     margin: 10px;
     border: 1px solid #fff;
 }
-.right__wrapper{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 10px;
+
+.inppp{
+    margin: 10px;
+    border-radius: 10px;
+    border: none;
+    text-align: center;
+    width: 80px;
+    height: 40px;
+    margin-left: 24%;
+}
+.comment-sectionn{
+    text-align: center;
+    min-width: 300px;
+}
+.omment-inputt{
+    text-align: center;
 }
 .comment-section {
     margin-top: 45px;
@@ -456,6 +463,11 @@ h1,h2,h3{
     .main__navv{
         display: inline;
         text-align: center;
+    }
+    .generoo{
+        display: inline;
+        text-align: center;
+        width: auto;
     }
     
     .main-secondary{

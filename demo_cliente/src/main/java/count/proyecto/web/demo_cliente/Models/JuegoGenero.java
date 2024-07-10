@@ -11,7 +11,7 @@ import lombok.Setter;
 @Entity
 @NoArgsConstructor
 @Table(name = "juego_genero")
-public class juegoGenero {
+public class JuegoGenero {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "idjuegoGenero")
