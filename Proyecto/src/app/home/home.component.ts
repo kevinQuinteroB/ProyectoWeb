@@ -29,6 +29,7 @@ export class HomeComponent {
   jg: JuegoGenero[];
   compra: Compra;
   currentGame: Juego | null = null;
+  idCurrentUser: number;
   constructor(
     private renderer: Renderer2,
     private gameService: JuegoService,
@@ -45,6 +46,7 @@ export class HomeComponent {
 
   ngOnInit() {
     this.usuarioRegistrado = this.usuarioService.getUsuarioRegistrado();
+
     const options = document.getElementById('options');
     var button = document.getElementById('boton_orden');
     button?.addEventListener('click', () => {
@@ -56,7 +58,7 @@ export class HomeComponent {
         this?.renderer.setStyle(options, 'display', 'none');
       }
     })
-    this.usuarioRegistrado = this.usuarioService.getUsuarioRegistrado();
+
     this.gameService.traerTodo().subscribe(Response => {
       console.log('Juegos Cargados', Response);
       this.juego = Response;
@@ -67,6 +69,7 @@ export class HomeComponent {
     });
 
     if (this.usuarioRegistrado) {
+      this.idCurrentUser = this.usuarioRegistrado?.idUsuario;
       this.compraService.findAll(this.usuarioRegistrado.idUsuario).subscribe(Response => {
         console.log('Compras Cargadas', Response);
         this.compras = Response;
@@ -101,18 +104,35 @@ export class HomeComponent {
     localStorage.setItem('juegoRegistrado', JSON.stringify(juego));
   }
 
-  agregarAlCarrito(juego: number, idUser: number = 0) {
-    console.log('Verificando el contenido de la cache: ', this.usuarioRegistrado?.idUsuario)
-    this.compraService.agregarCarrito(idUser, juego, this.compra);
-    this.refreshPage();
+  agregarCarrito(juego: number): void {
+    
+    if (this.usuarioRegistrado!=null) {
+      if(this.compras.some(compra=>compra.juego.idJuego==juego)){
+      this.compraService.agregarCarrito(this.idCurrentUser, juego, this.compra).subscribe(Response => {
+          this.compras.push(Response);
+          console.log("Verificando compras list", this.compras)
+        });
+      this.compraService.findAll(this.usuarioRegistrado.idUsuario).subscribe(Response => {
+        this.compras = Response;
+      });}else{
+        console.log("El juego ya esta en el carrito", this.compras);
+      }
+    } else {
+      console.log("Error con usuario", this.usuarioRegistrado);
+    }
   }
+
+
   refreshPage() {
     this.location.go(this.location.path());
     window.location.reload();
   }
   goPaginaJuego(idJuego: number): void {
-    this.gameService.setCurrentGame(idJuego);
-    this.currentGame = this.gameService.getJuegoRegistrado();
+    this.gameService.setCurrentGame(idJuego).subscribe(Response => {
+      console.log('Juego por Id cargado', Response)
+      this.currentGame = Response;
+      localStorage.setItem('currentGame', JSON.stringify(Response))
+    });
     this.router.navigate(['/juego']);
 
   }

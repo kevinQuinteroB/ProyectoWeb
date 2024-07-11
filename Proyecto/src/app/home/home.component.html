@@ -97,7 +97,7 @@
             <div class="gamesZone col-4">
               <img [src]="j.imagen" alt="ImagenNoDisponible" class="portada" id="image_game">
               <button style="margin-left: 1%; margin-top: 320px; display:inline-block; position: absolute;" type="button"
-                class="btn btn-info image_game_button" id="addToCartButton" (click)="agregarAlCarrito(j.idJuego,usuarioRegistrado?.idUsuario)">Agregar al Carrito</button>
+                class="btn btn-info image_game_button" id="addToCartButton" (click)="agregarCarrito(j.idJuego)">Agregar al Carrito</button>
               <button style="margin-left: 1%; margin-top: 360px; display:inline-block; position: absolute;" type="button"
                 class="btn btn-light image_game_button" id="viewMoreInfoButton" (click)="goPaginaJuego(j.idJuego)">Ver más Información</button>
               
@@ -124,7 +124,7 @@
             2211848: Diego Alejandro García Barajas
             2211867: Jhon Jairo Almanzar Quintero 
             2211884: Kevin Steven Quintero Buitrago
-            {{this.usuarioRegistrado?.idUsuario}}
+            {{this.idCurrentUser}}
           </pre>
         </div>
       </div>

@@ -19,13 +19,13 @@ export class JuegoService {
     );
   }
   getJuegoRegistrado(): Juego {
-    return JSON.parse(localStorage.getItem('juegoRegistrado') || '{}');
+    return JSON.parse(localStorage.getItem('gameRegistrado') || '{}');
   }
   setCurrentGame(idJuego:number): Observable<Juego> {
     
       return this.httpClient.get<Juego>(`${this.base_url}/game/${idJuego}`).pipe(
         tap(game => {
-          localStorage.setItem('usuarioRegistrado', JSON.stringify(game));
+          console.log("Juego Cargado Por ID ", game)
         })
       );
     

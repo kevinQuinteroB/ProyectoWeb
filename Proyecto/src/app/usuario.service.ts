@@ -15,6 +15,7 @@ export class UsuarioService {
     return this.httpClient.get<Usuario>(`${this.baseURL}/login/${email}/${contrasena}`).pipe(
       tap(usuario => {
         localStorage.setItem('usuarioRegistrado', JSON.stringify(usuario));
+        
       })
     );
   }
