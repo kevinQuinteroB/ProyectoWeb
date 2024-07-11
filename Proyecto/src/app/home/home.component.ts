@@ -160,6 +160,18 @@ export class HomeComponent {
     });
     this.router.navigate(['/juego']);
   }
+  actualizarCompra(){
+    this.actualizarprecio();
+
+    for (let i = 0; i < this.compras.length; i++) {
+      this.compraService.updateCompras(this.fecha,this.totaldesc,this.compras[i].idCompra,this.compras[i]).subscribe(Response=>{
+        this.compras[i] = Response;
+        console.log('Actualizacion por venta de juego', Response)
+      
+      })
+    }
+    this.compras=[];
+  }
 }
 
 document.addEventListener('DOMContentLoaded', function () {

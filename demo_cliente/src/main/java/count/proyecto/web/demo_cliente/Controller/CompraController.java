@@ -41,10 +41,10 @@ public class CompraController {
         return ResponseEntity.ok().build();
     }
     @PutMapping("/update/{fecha}/{total}")
-    @Transactional
     public ResponseEntity updateCompra(@PathVariable Date fecha,
                                        @PathVariable double total,
-                                       @RequestBody Compra compra){
+                                       @RequestBody Compra compra
+                                       ){
         compraService.updateCompra(compra,fecha, total);
         return ResponseEntity.ok().build();
     }

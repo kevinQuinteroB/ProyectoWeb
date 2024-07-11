@@ -46,7 +46,11 @@ public class CompraService {
         compraRepository.deleteById(idCompra);
     }
     public void updateCompra(Compra compra, Date fecha, double total){
-        compra.setFecha(fecha);
-        compra.setTotalCompra(total);
+        Compra compraExistente = compraRepository.findById(compra.getIdCompra())
+                .orElseThrow(() -> new IllegalArgumentException("Comentario no encontrado con ID: " + compra.getIdCompra()));
+
+        compraExistente.setTotalCompra(compra.getTotalCompra());
+
+        compraRepository.actualizarVenta(compraExistente.getIdCompra(),total,fecha);
     }
 }
