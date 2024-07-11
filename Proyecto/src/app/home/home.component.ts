@@ -25,12 +25,14 @@ export class HomeComponent {
   juego: Juego[];
   gender: Genero[];
   compras: Compra[];
-  public usuarioRegistrado: Usuario | null = null;
+  usuarioRegistrado: Usuario | null = null;
   jg: JuegoGenero[];
   compra: Compra;
   currentGame: Juego | null = null;
   idCurrentUser: number;
-  total:number=0;
+  total: number = 0;
+  totaldesc:number=0;
+  fecha:Date = new Date('yyyy-MM-dd');
 
 
   constructor(
@@ -49,7 +51,7 @@ export class HomeComponent {
 
   ngOnInit() {
     this.usuarioRegistrado = this.usuarioService.getUsuarioRegistrado();
-    this.compras.forEach(compra=>{ this.total+=compra.juego.precio});
+
     const options = document.getElementById('options');
     var button = document.getElementById('boton_orden');
     button?.addEventListener('click', () => {
@@ -66,6 +68,7 @@ export class HomeComponent {
       console.log('Juegos Cargados', Response);
       this.juego = Response;
     });
+
     this.genderService.findAll().subscribe(Response => {
       console.log('Generos Cargados', Response);
       this.gender = Response;
@@ -83,8 +86,20 @@ export class HomeComponent {
         this.compras = Response;
       });
     }
+    this.actualizarprecio();
+  }
+  //Fin ng init
 
-
+  actualizarprecio(): void {
+    this.total=0;
+    let sum=0;
+    let desc=0;
+    for (let i = 0; i < this.compras.length; i++) {
+       sum=sum+this.compras[i].juego.precio;
+       desc=desc+(this.compras[i].juego.precio-(this.compras[i].juego.precio*(this.compras[i].juego.descuento/100)))
+    }
+    this.total=sum;
+    this.totaldesc=desc;
   }
   searchForGender(idGender: number) {
     this.jgService.findByGender(idGender).subscribe(Response => {
@@ -103,12 +118,8 @@ export class HomeComponent {
     this.router.navigate(['/perfil'])
   }
 
-  setJuegoRegistrado(juego: Juego): void {
-    localStorage.setItem('juegoRegistrado', JSON.stringify(juego));
-  }
-
   agregarCarrito(juego: number): void {
-
+    
     if (this.usuarioRegistrado != null) {
       if (!this.compras.some(compra => compra.juego.idJuego == juego)) {
         this.compraService.agregarCarrito(this.idCurrentUser, juego, this.compra).subscribe(Response => {
@@ -125,13 +136,16 @@ export class HomeComponent {
       console.log("Error con usuario", this.usuarioRegistrado);
     }
   }
-  delById(id_Compra:number) {
-    this.compraService.deletebyId(id_Compra).subscribe(Response=>{
-      console.log('Juego eliminado del Carrito',Response);
+
+  delById(id_Compra: number) {
+    this.compraService.deletebyId(id_Compra).subscribe(Response => {
+      console.log('Juego eliminado del Carrito', Response);
       if (this.usuarioRegistrado != null) {
-      this.compraService.findAll(this.usuarioRegistrado.idUsuario).subscribe(Response => {
-        this.compras = Response;})};
-    })
+        this.compraService.findAll(this.usuarioRegistrado.idUsuario).subscribe(Response => {
+          this.compras = Response;
+        })
+      }
+    });
   }
 
   refreshPage() {
@@ -145,7 +159,6 @@ export class HomeComponent {
       localStorage.setItem('currentGame', JSON.stringify(Response))
     });
     this.router.navigate(['/juego']);
-
   }
 }
 
