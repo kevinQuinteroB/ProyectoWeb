@@ -3,10 +3,12 @@ import { ComentarioService } from '../comentario.service';
 import { Comentario } from '../comentario';
 import { JuegoService } from '../juego.service';
 import { Juego } from '../juego';
-import { GeneroService } from '../genero.service';
-import { Genero } from '../genero';
 import { JuegoGeneroService } from '../juego-genero.service';
 import { JuegoGenero } from '../juego-genero';
+import { ValoracionService } from '../valoracion.service';
+import { Valoracion } from '../valoracion';
+
+
 
 @Component({
   selector: 'app-juego',
@@ -15,18 +17,20 @@ import { JuegoGenero } from '../juego-genero';
 })
 
 export class JuegoComponent implements OnInit {
-  valoracionGeneral: number = 0;
+  valoracion: Valoracion[] = [];
   juegoGeneros: JuegoGenero[] = []; 
   juego: Juego | null = null;
   comentarios: Comentario[] = [];
   nuevoComentario: string = '';
   comentarioEnEdicion: Comentario | null = null;
   comentarioEditado: string = '';
+  nuevaValoracion: number = 0;
+  valoracionGeneral: number = 0;
   idUsuario: number = 0; // Reemplaza con el ID del usuario actual
   idJuego: number = 0; // Reemplaza con el ID del juego actual
 
   constructor(
-    private genderService: GeneroService,
+    private valoracionService: ValoracionService,
     private juegoService: JuegoService,
     private comentarioService: ComentarioService,
     private juegoGeneroService: JuegoGeneroService
@@ -36,6 +40,19 @@ export class JuegoComponent implements OnInit {
     this.getjuegoGenerosByJuego(this.idJuego); 
     this.getComentarios(this.idJuego);
     this.getJuegoById(this.idJuego);
+    this.getValoracion(this.idJuego);
+  }
+
+  getValoracion(idJuego: number): void {
+    this.valoracionService.findAll(idJuego).subscribe(
+      (data: Valoracion[]) => {
+        this.valoracion = data;
+        this.calcularValoracionGeneral();
+      },
+      error => {
+        console.error('Error al obtener las valoraciones', error);
+      }
+    );
   }
 
   getjuegoGenerosByJuego(idJuego: number): void {
@@ -66,7 +83,6 @@ export class JuegoComponent implements OnInit {
     this.comentarioService.getComentariosByJuego(idJuego).subscribe(
       (data: Comentario[]) => {
         this.comentarios = data;
-        this.calcularValoracionGeneral();
       },
       error => {
         console.error('Error al obtener los comentarios', error);
@@ -74,12 +90,22 @@ export class JuegoComponent implements OnInit {
     );
   }
 
-  calcularValoracionGeneral(): void {
-    if (this.comentarios.length > 0) {
-      const totalValoraciones = this.comentarios.reduce((acc, comentario) => acc + comentario.valoracionJuego, 0);
-      this.valoracionGeneral = totalValoraciones / this.comentarios.length;
-    } else {
-      this.valoracionGeneral = 0;
+  enviarValoracion(): void {
+    if (this.nuevaValoracion >= 1 && this.nuevaValoracion <= 5) {
+      const valoracion: Valoracion = {
+        idValoracion: 0,
+        content: this.nuevaValoracion,
+        juego: { idJuego: this.idJuego } as any
+      };
+
+      this.valoracionService.postValoracion(this.idJuego, valoracion).subscribe(
+        (data: Valoracion) => {
+          this.valoracion.push(data);
+        },
+        error => {
+          console.error('Error al enviar la valoración', error);
+        }
+      );
     }
   }
 
@@ -140,6 +166,13 @@ export class JuegoComponent implements OnInit {
     }
   }
 
+  calcularValoracionGeneral(): void {
+    let totalValoraciones = 0;
+    if (this.valoracion.length > 0) {
+      totalValoraciones = this.valoracion.reduce((total, valoracion) => total + valoracion.content, 0);
+      this.valoracionGeneral = totalValoraciones / this.valoracion.length;
+    }
+  }
 }
 
 

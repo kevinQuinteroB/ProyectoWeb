@@ -17,8 +17,8 @@ public class Valoracion {
     @Column(name = "idValoracion")
     private long idValoracion;
 
-    @Column(name = "contenido")
-    private long contenido;
+    @Column(name = "content")
+    private long content;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="idJuego", nullable = false)

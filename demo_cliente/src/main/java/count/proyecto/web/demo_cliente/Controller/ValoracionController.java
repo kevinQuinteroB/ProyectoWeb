@@ -22,5 +22,14 @@ public class ValoracionController {
         return ResponseEntity.ok(valoracions);
     }
 
+    @PostMapping("/crear/{idJuego}")
+    public ResponseEntity<Valoracion> crearValoracion(
+            @PathVariable Long idJuego,
+            @RequestBody Valoracion valoracion
+    ) {
+        Valoracion nuevoValoracion = valoracionService.save(idJuego, valoracion);
+        return ResponseEntity.status(HttpStatus.CREATED).body(nuevoValoracion);
+    }
+
 }
 

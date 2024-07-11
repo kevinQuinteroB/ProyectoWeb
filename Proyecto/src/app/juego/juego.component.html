@@ -73,13 +73,13 @@
 
         <div class="wrapper">
           <div class="button-container">
-            <button type="" class="btnn btn-2">{{ valoracionGeneral.toFixed(2) }}</button>
+            <button type="" class="btnn btn-2">VALORACION DE {{ valoracionGeneral.toFixed(1) }}</button>
           </div>
           <div class="button-container">
-            <button class="btnn btn-2">{{ juego.precio }}</button>
+            <button class="btnn btn-2">TAN SOLO POR {{ juego.precio }}</button>
           </div>
           <div class="button-container">
-            <button class="btnn btn-2">{{ juego.descuento }}</button>
+            <button class="btnn btn-2">CON UN {{ juego.descuento }}% DE DESCUENTO</button>
           </div>
         </div>
 
@@ -102,22 +102,21 @@
         </div>
 
 
-        <div class="comment-section comment-sectionn ">
+        <div class="comment-section comment-sectionn">
           <h4>Calificar</h4>
-
+        
           <label for="valoracionInput">VALORACION DE (1 - 5)</label>
           <div class="comment-input omment-inputt">
-            <input class = "inppp" type="number" id="valoracionInput" name="valoracion" min="1" max="5" step="1"
-              onkeydown="return false;">
-
-            <button class="calificar" type="submit">
+            <input class="inppp" type="number" id="valoracionInput" name="valoracion" min="1" max="5" step="1" [(ngModel)]="nuevaValoracion" onkeydown="return false;">
+        
+            <button class="calificar" type="button" (click)="enviarValoracion()">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send-fill" viewBox="0 0 16 16">
-                <path
-                  d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471z" />
+                <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471z"/>
               </svg>
             </button>
           </div>
         </div>
+        
 
 
         <div class="comment-section">
