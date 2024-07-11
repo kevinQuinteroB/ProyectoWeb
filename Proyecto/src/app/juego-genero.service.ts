@@ -12,4 +12,12 @@ export class JuegoGeneroService {
   findAll(id_juego: number): Observable<JuegoGenero[]> {
     return this.httpClient.get<JuegoGenero[]>(`${this.Url}/get/${id_juego}`);
   }
+  findByGender(idGender: number): Observable<JuegoGenero[]> {
+    return this.httpClient.get<JuegoGenero[]>(`${this.Url}/gender/${idGender}`).pipe(
+      tap(juego_genero => {
+        console.log('JuegosGeneros Cargados', juego_genero);
+      })
+    );
+  }
+
 }

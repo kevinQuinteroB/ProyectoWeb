@@ -12,7 +12,7 @@ export class GeneroService {
   findAll(): Observable<Genero[]> {
     return this.httpClient.get<Genero[]>(`${this.base_url}/gender/all`).pipe(
       tap(nameGenero => {
-        console.log('Juego Cargado', nameGenero);
+        console.log('Generos Cargados', nameGenero);
       })
     );
 

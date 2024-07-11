@@ -37,7 +37,7 @@
     </div>
     <div class="header__user-container">
       <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-fill"
-        viewBox="0 0 16 16">
+        viewBox="0 0 16 16" (click)="goPerfil()">
         <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
       </svg>
     </div>
@@ -87,7 +87,7 @@
 
           <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
             <ng-container *ngFor="let g of gender">
-              <button type="button" class="btn btn-primary">{{g.genero}}</button>
+              <button type="button" class="btn btn-primary" (click)="searchForGender(g.idGenero)">{{g.genero}}</button>
             </ng-container>
           </div>
         </div>
@@ -95,7 +95,12 @@
         <div class="col-9 row">
           <ng-container *ngFor="let j of juego">
             <div class="gamesZone col-4">
-              <img [src]="j.imagen" alt="Imagen-prueba" alt="ImagenNoDisponible" class="portada" [id]="j.idJuego">
+              <img [src]="j.imagen" alt="ImagenNoDisponible" class="portada" id="image_game">
+              <button style="margin-left: 1%; margin-top: 320px; display:inline-block; position: absolute;" type="button"
+                class="btn btn-info image_game_button" id="addToCartButton" (click)="agregarAlCarrito(j.idJuego,usuarioRegistrado?.idUsuario)">Agregar al Carrito</button>
+              <button style="margin-left: 1%; margin-top: 360px; display:inline-block; position: absolute;" type="button"
+                class="btn btn-light image_game_button" id="viewMoreInfoButton" (click)="goPaginaJuego(j.idJuego)">Ver más Información</button>
+              
             </div>
             <!--<div class="gamesZone col-4" >
             <img src="https://i.ibb.co/Fz7pt4N/imagen-2024-07-08-110248767.png" alt="Imagen-prueba" class="portada">           
@@ -113,14 +118,20 @@
       <div class="row">
         <div class="col credits">
           <h3 class="text">
-            Creditos:
+            Créditos:
           </h3>
+          <pre class="text2">
+            2211848: Diego Alejandro García Barajas
+            2211867: Jhon Jairo Almanzar Quintero 
+            2211884: Kevin Steven Quintero Buitrago
+            {{this.usuarioRegistrado?.idUsuario}}
+          </pre>
         </div>
       </div>
     </div>
 
   </main>
-  <!-- Modal -->
+  <!-- Carrito de Compras -->
   <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -135,27 +146,27 @@
               <table class="table">
                 <thead>
                   <tr>
-                    <th scope="col">Juego</th>
-                    <th scope="col">Precio</th>
-                    <th scope="col">Descuento</th>
-                    <th scope="col">Acciones</th>
+                    <th class="color-table" scope="col">Juego</th>
+                    <th class="color-table" scope="col">Precio</th>
+                    <th class="color-table" scope="col">Descuento</th>
+                    <th class="color-table" scope="col">Acciones</th>
                   </tr>
                 </thead>
                 <tbody>
 
                   <ng-container *ngFor="let buy of compras">
                     <tr>
-                      <td>{{buy.juego.nombre}}</td>
-                      <td>{{buy.juego.precio}}</td>
-                      <td>{{buy.juego.descuento}}</td>
-                      <td><button type="button" class="btn btn-danger">Eliminar</button></td>
+                      <td class="color-table">{{buy.juego.nombre}}</td>
+                      <td class="color-table">{{buy.juego.precio}}</td>
+                      <td class="color-table">{{buy.juego.descuento}}</td>
+                      <td class="color-table"><button type="button" class="btn btn-danger">Eliminar</button></td>
                     </tr>
                   </ng-container>
                   <tr>
-                    <td>Total</td>
-                    <td></td>
-                    <td>Total con Descuentos</td>
-                    <td><button type="button" class="btn btn-success">Comprar</button></td>
+                    <td class="color-table">Total</td>
+                    <td class="color-table"></td>
+                    <td class="color-table">Total con Descuentos</td>
+                    <td class="color-table"><button type="button" class="btn btn-success">Comprar</button></td>
                   </tr>
 
                 </tbody>

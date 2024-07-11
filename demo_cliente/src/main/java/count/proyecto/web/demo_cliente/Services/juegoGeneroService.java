@@ -13,12 +13,12 @@ import java.util.List;
 public class juegoGeneroService {
     @Autowired
     private juegoGeneroRepository juegogeneroRepository;
-    @Autowired
-    private GeneroRepository generoRepository;
-    @Autowired
-    private JuegoRepository juegoRepository;
+
 
     public List<JuegoGenero> findjuegoGeneroByid_juego(Long idJuego) {
         return juegogeneroRepository.findByid_juego(idJuego);
+    }
+    public List<JuegoGenero> findByGender(Long idGender) {
+        return juegogeneroRepository.findByGender(idGender);
     }
 }

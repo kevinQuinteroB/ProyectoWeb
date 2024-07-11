@@ -17,6 +17,17 @@ export class JuegoService {
         console.log('Juego Cargado', imgGame);
       })
     );
-
+  }
+  getJuegoRegistrado(): Juego {
+    return JSON.parse(localStorage.getItem('juegoRegistrado') || '{}');
+  }
+  setCurrentGame(idJuego:number): Observable<Juego> {
+    
+      return this.httpClient.get<Juego>(`${this.base_url}/game/${idJuego}`).pipe(
+        tap(game => {
+          localStorage.setItem('usuarioRegistrado', JSON.stringify(game));
+        })
+      );
+    
   }
 }
