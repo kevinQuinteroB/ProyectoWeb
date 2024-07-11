@@ -47,6 +47,7 @@ h1,h2,h3{
 
 /*------------Buscador---------------*/
 .header__search-container{  
+    pointer-events: none;
     display: flex;
     justify-content: center;
     align-items: center;
