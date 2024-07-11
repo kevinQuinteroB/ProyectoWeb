@@ -7,6 +7,9 @@ import { JuegoGeneroService } from '../juego-genero.service';
 import { JuegoGenero } from '../juego-genero';
 import { ValoracionService } from '../valoracion.service';
 import { Valoracion } from '../valoracion';
+import { Location } from '@angular/common';
+import { Usuario } from '../usuario';
+import { UsuarioService } from '../usuario.service';
 
 
 
@@ -26,21 +29,34 @@ export class JuegoComponent implements OnInit {
   comentarioEditado: string = '';
   nuevaValoracion: number = 0;
   valoracionGeneral: number = 0;
-  idUsuario: number = 0; // Reemplaza con el ID del usuario actual
-  idJuego: number = 0; // Reemplaza con el ID del juego actual
+  idUsuario: number = -1; // Reemplaza con el ID del usuario actual
+  idJuego: number = 1; // Reemplaza con el ID del juego actual
+  sesionUsuario: Usuario | null = null
 
   constructor(
     private valoracionService: ValoracionService,
     private juegoService: JuegoService,
     private comentarioService: ComentarioService,
-    private juegoGeneroService: JuegoGeneroService
-  ) { }
+    private juegoGeneroService: JuegoGeneroService,
+    private location: Location,
+    private usuarioService: UsuarioService
+  ) {
+    this.sesionUsuario = this.usuarioService.getUsuarioRegistrado();
+    if (this.sesionUsuario) {
+      this.idUsuario = this.sesionUsuario.idUsuario;
+    }
+   }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
     this.getjuegoGenerosByJuego(this.idJuego); 
     this.getComentarios(this.idJuego);
     this.getJuegoById(this.idJuego);
     this.getValoracion(this.idJuego);
+  }
+
+  refreshPage() {
+    this.location.go(this.location.path());
+    window.location.reload();
   }
 
   getValoracion(idJuego: number): void {
