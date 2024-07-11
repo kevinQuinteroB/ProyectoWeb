@@ -30,7 +30,7 @@ export class JuegoComponent implements OnInit {
   nuevaValoracion: number = 0;
   valoracionGeneral: number = 0;
   idUsuario: number = -1; // Reemplaza con el ID del usuario actual
-  idJuego: number = 0; // Reemplaza con el ID del juego actual
+  idJuego: number = 1; // Reemplaza con el ID del juego actual
   sesionUsuario: Usuario | null = null
 
   constructor(
@@ -41,8 +41,10 @@ export class JuegoComponent implements OnInit {
     private location: Location,
     private usuarioService: UsuarioService
   ) {
-    this.sesionUsuario=this.usuarioService.getUsuarioRegistrado()
-    this.idUsuario=this.sesionUsuario.idUsuario;
+    this.sesionUsuario = this.usuarioService.getUsuarioRegistrado();
+    if (this.sesionUsuario) {
+      this.idUsuario = this.sesionUsuario.idUsuario;
+    }
    }
 
   ngOnInit(): void { 
