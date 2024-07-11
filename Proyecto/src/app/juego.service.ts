@@ -25,6 +25,7 @@ export class JuegoService {
     
       return this.httpClient.get<Juego>(`${this.base_url}/game/${idJuego}`).pipe(
         tap(game => {
+          localStorage.setItem('juegoRegistrado', JSON.stringify(game));
           console.log("Juego Cargado Por ID ", game)
         })
       );
