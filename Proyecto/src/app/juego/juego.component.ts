@@ -12,8 +12,6 @@ import { Usuario } from '../usuario';
 import { UsuarioService } from '../usuario.service';
 import { Router } from '@angular/router';
 
-
-
 @Component({
   selector: 'app-juego',
   templateUrl: './juego.component.html',
@@ -31,8 +29,10 @@ export class JuegoComponent implements OnInit {
   nuevaValoracion: number = 0;
   valoracionGeneral: number = 0;
   idUsuario: number = -1; // Reemplaza con el ID del usuario actual
-  idJuego: number = 1; // Reemplaza con el ID del juego actual
+  idJuego: number  // Reemplaza con el ID del juego actual
   sesionUsuario: Usuario | null = null
+  sesionJuego: Juego | null = null
+  prueba: number 
 
   constructor(
     private valoracionService: ValoracionService,
@@ -47,13 +47,19 @@ export class JuegoComponent implements OnInit {
     if (this.sesionUsuario) {
       this.idUsuario = this.sesionUsuario.idUsuario;
     }
+    this.sesionJuego = this.juegoService.getJuegoRegistrado();
+    if (this.sesionJuego) {
+      this.idJuego = this.sesionJuego.idJuego;
+
+      this.getJuegoById(this.idJuego);
+      this.getjuegoGenerosByJuego(this.idJuego); 
+      this.getComentarios(this.idJuego);
+      this.getValoracion(this.idJuego);
+    }
    }
 
-  ngOnInit(): void { 
-    this.getjuegoGenerosByJuego(this.idJuego); 
-    this.getComentarios(this.idJuego);
-    this.getJuegoById(this.idJuego);
-    this.getValoracion(this.idJuego);
+  ngOnInit(): void {    
+    
   }
 
   refreshPage() {
@@ -199,6 +205,9 @@ export class JuegoComponent implements OnInit {
   }
   goHome() {
     this.router.navigate(['/home'])
+  }
+
+  ejecutarRetraso() :void {
   }
 }
 

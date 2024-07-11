@@ -118,8 +118,6 @@ export class HomeComponent {
     this.router.navigate(['/perfil'])
   }
 
-
-
   agregarCarrito(juego: number): void {
     
     if (this.usuarioRegistrado != null) {

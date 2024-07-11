@@ -27,6 +27,7 @@ export class JuegoService {
         tap(game => {
           localStorage.setItem('juegoRegistrado', JSON.stringify(game));
           console.log("Juego Cargado Por ID ", game)
+          localStorage.setItem('gameRegistrado', JSON.stringify(game));
         })
       );
     
