@@ -29,9 +29,6 @@ public class Juego {
     @Column(name = "descripcion")
     private String descripcion;
 
-    @Column(name = "valoracion")
-    private long valoracion;
-
     @Column(name = "precio")
     private long precio;
 

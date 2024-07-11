@@ -48,7 +48,6 @@ public class ComentarioService {
                 .orElseThrow(() -> new IllegalArgumentException("Comentario no encontrado con ID: " + idComentario));
 
         comentarioExistente.setContenido(comentarioActualizado.getContenido());
-        comentarioExistente.setValoracionJuego(comentarioActualizado.getValoracionJuego());
 
         return comentarioRepository.save(comentarioExistente);
     }

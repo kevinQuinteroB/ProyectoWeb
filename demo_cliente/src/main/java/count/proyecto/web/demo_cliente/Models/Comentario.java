@@ -21,9 +21,6 @@ public class Comentario {
     @Column(name = "contenido")
     private String contenido;
 
-    @Column(name = "valoracionJuego")
-    private double valoracionJuego;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idUsuario", nullable = false)
     private Usuario usuario;

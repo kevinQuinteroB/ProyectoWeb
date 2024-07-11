@@ -3,7 +3,6 @@ export class Comentario {
     constructor(
       public idComentario: number,
       public contenido: string,
-      public valoracionJuego: number =-1,
       public usuario: {
         idUsuario: number,
         nombre: string,

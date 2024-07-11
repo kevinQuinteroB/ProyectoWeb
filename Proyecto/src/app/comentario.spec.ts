@@ -28,7 +28,6 @@ describe('Comentario', () => {
     const comentario = new Comentario(
       1,
       'Este juego es increíble!',
-      5.0,
       usuario,
       juego
     );

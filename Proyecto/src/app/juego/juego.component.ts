@@ -131,7 +131,6 @@ export class JuegoComponent implements OnInit {
     const comentario: Comentario = {
       idComentario: 0, 
       contenido: this.nuevoComentario,
-      valoracionJuego: 0,
       usuario: { idUsuario: this.idUsuario } as any,
       juego: { idJuego: this.idJuego } as any
     };
