@@ -221,3 +221,7 @@ img{
   .letrasNegras:hover{
     color: #000000;
   }
+
+  .pasarMouse:hover{
+    filter: brightness(1.5);
+  }
