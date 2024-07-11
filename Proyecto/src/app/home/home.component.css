@@ -55,6 +55,7 @@ pre {
 }
 
 .header__search-container {
+    pointer-events: none;
     display: flex;
     margin-left: 16%;
     justify-content: center;
