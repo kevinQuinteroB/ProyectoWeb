@@ -60,7 +60,7 @@ export class HomeComponent {
       this.compraService.findAll(this.sesionUsuario.idUsuario).subscribe(Response => {
         console.log('Generos Cargados', Response);
         this.compras=Response;
-      });
+      }); 
     }else{
       this.compraService.findAll(-1).subscribe(Response => {
         console.log('Generos Cargados', Response);
