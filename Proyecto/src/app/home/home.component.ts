@@ -100,10 +100,6 @@ export class HomeComponent {
     this.router.navigate(['/perfil'])
   }
 
-  setJuegoRegistrado(juego: Juego): void {
-    localStorage.setItem('juegoRegistrado', JSON.stringify(juego));
-  }
-
   agregarCarrito(juego: number): void {
     
     if (this.usuarioRegistrado!=null) {
@@ -134,7 +130,6 @@ export class HomeComponent {
       localStorage.setItem('currentGame', JSON.stringify(Response))
     });
     this.router.navigate(['/juego']);
-
   }
 }
 
