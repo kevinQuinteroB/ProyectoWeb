@@ -22,7 +22,8 @@ label {
 
 h1,
 h2,
-h3 {
+h3,
+pre {
     text-align: center;
 }
 
@@ -273,6 +274,7 @@ body {
     margin-top: 10%;
     text-align: left;
     margin-left: 5%;
+    margin-bottom: 5%;
 }
 
 .btn-group-vertical {
@@ -304,8 +306,15 @@ body {
 
 .portada:hover {
     scale: 110%;
-    z-index: 4;
+    z-index: 6;
+    position: sticky;
+    
 }
+
+.portada {
+    z-index: 6;
+}
+
 
 .gamesZone>.portada {
     border-radius: 8px;
@@ -314,6 +323,15 @@ body {
     box-shadow: 0px 0px 30px black;
     margin-left: 2%;
     transition: all .9 ease;
+}
+
+.image_game_button  {
+    z-index:6;
+    position: relative;
+    top: auto;
+    color:#fff;
+    border: #202020 solid 1px;
+    background-color: #474747;
 }
 
 /* Zona de Creditos*/
@@ -331,6 +349,13 @@ body {
     margin-top: 1%;
 }
 
+.text2 {
+    margin-top: 1%;
+    font-size: large;
+    text-align: left;
+    margin-left: 25%;
+}
+
 /*Carrito*/
 .modal-dialog {
     display: flex;
@@ -339,24 +364,39 @@ body {
     min-height: 100vh;
     margin-left: 33%;
 }
-.btn-close{
+
+.btn-close {
     margin-right: 1%;
 }
-.modal-header{
-    margin:3%;
+
+.modal-header {
+    margin: 3%;
 }
-.btn-success,.btn-danger{
+
+.btn-success,
+.btn-danger {
     margin: 3px;
 }
-.modal-content{
+
+.modal-content {
     border: white solid 2px;
-    background-color: #251a25;
+    /* background-color: #251a25;*/
+    background-color: #202020;
     color: #fff;
 }
-.upBounds{
+
+.upBounds {
     margin: 2%;
     border-radius: 10px;
+    background-color: #474747;
 }
-.close{
+
+.color-table {
+    background-color: #474747;
+    border-radius: 10px;
+    color: #fff;
+}
+
+.close {
     border: 2px white solid;
 }

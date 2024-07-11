@@ -4,6 +4,6 @@ export class Compra {
     idCompra: number
     totalCompra: number
     fecha: Date
-    juego: Juego
-    user: Usuario
+    juego: Juego 
+    user: Usuario 
 }

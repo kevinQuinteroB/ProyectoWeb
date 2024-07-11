@@ -3,13 +3,14 @@ import { Observable, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Compra } from './compra';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class CompraService {
   private url = "http://localhost:8080"
   constructor(private httpClient: HttpClient) { }
-  findAll(id_User:number): Observable<Compra[]> {
+  findAll(id_User: number): Observable<Compra[]> {
     return this.httpClient.get<Compra[]>(`${this.url}/buy/${id_User}`).pipe(
       tap(compras => {
         console.log('Carrito Cargado', compras);
@@ -18,10 +19,18 @@ export class CompraService {
 
   }
 
-  carrito(id_User:number): Observable<Compra[]>{
+  carrito(id_User: number): Observable<Compra[]> {
     return this.httpClient.get<Compra[]>(`${this.url}/buy/inventario/${id_User}`).pipe(
-      tap( inventario => {
+      tap(inventario => {
         console.log("Inventario Cargado", inventario);
+      })
+    );
+  }
+
+  agregarCarrito(idUser: number, idJuego: number, compra: Compra): Observable<Compra> {
+    return this.httpClient.post<Compra>(`${this.url}/buy/add/${idUser}/${idJuego}`, compra).pipe(
+      tap(compra => {
+        console.log("Item añadido al carrito", compra);
       })
     );
   }

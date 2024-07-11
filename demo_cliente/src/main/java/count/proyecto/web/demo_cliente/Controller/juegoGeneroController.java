@@ -20,5 +20,10 @@ public class juegoGeneroController {
         List<JuegoGenero> juegogeneros = juegogeneroService.findjuegoGeneroByid_juego(idJuego);
         return ResponseEntity.ok(juegogeneros);
     }
+    @GetMapping("/gender/{idGender}")
+    public ResponseEntity<List<JuegoGenero>> searchForGender(@PathVariable Long idGender) {
+        List<JuegoGenero> lista = juegogeneroService.findByGender(idGender);
+        return ResponseEntity.ok(lista);
+    }
 }
 
