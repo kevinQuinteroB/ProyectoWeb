@@ -10,16 +10,15 @@ import lombok.Setter;
 @Setter
 @Entity
 @NoArgsConstructor
-@Table(name = "ListaJuego")
-public class ListaJuego {
+@Table(name = "Valoracion")
+public class Valoracion {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "idListaJuego")
-    private long idListaJuego;
+    @Column(name = "idValoracion")
+    private long idValoracion;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="idUsuario", nullable = false)
-    private Usuario usuario;
+    @Column(name = "contenido")
+    private String contenido;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="idJuego", nullable = false)

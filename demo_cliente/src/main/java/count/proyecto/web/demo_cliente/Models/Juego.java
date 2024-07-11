@@ -70,4 +70,19 @@ public class Juego {
         juegoGenero.setJuego(null);
     }
 
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "juego", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Valoracion> valoraciones = new ArrayList<>();
+
+    public void addValoracion(Valoracion valoracion) {
+        valoraciones.add(valoracion);
+        valoracion.setJuego(this);
+    }
+
+    public void removeValoracion(Valoracion valoracion) {
+        valoraciones.remove(valoracion);
+        valoracion.setJuego(null);
+    }
+
 }

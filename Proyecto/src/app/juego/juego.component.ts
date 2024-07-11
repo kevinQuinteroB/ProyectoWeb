@@ -85,7 +85,7 @@ export class JuegoComponent implements OnInit {
 
   enviarComentario(): void {
     const comentario: Comentario = {
-      idComentario: 0,
+      idComentario: 0, 
       contenido: this.nuevoComentario,
       valoracionJuego: 0,
       usuario: { idUsuario: this.idUsuario } as any,
@@ -157,8 +157,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-
-  
   document.addEventListener('DOMContentLoaded', function () {
     const generoButton = document.querySelector('.generoBtn') as HTMLButtonElement;
     const tableContainer = document.querySelector('.table-container') as HTMLElement;
