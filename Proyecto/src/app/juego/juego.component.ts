@@ -10,6 +10,7 @@ import { Valoracion } from '../valoracion';
 import { Location } from '@angular/common';
 import { Usuario } from '../usuario';
 import { UsuarioService } from '../usuario.service';
+import { Router } from '@angular/router';
 
 
 
@@ -39,7 +40,8 @@ export class JuegoComponent implements OnInit {
     private comentarioService: ComentarioService,
     private juegoGeneroService: JuegoGeneroService,
     private location: Location,
-    private usuarioService: UsuarioService
+    private usuarioService: UsuarioService,
+    private router: Router
   ) {
     this.sesionUsuario = this.usuarioService.getUsuarioRegistrado();
     if (this.sesionUsuario) {
@@ -188,6 +190,16 @@ export class JuegoComponent implements OnInit {
       totalValoraciones = this.valoracion.reduce((total, valoracion) => total + valoracion.content, 0);
       this.valoracionGeneral = totalValoraciones / this.valoracion.length;
     }
+  }
+
+  cerrarSesion() {
+    this.router.navigate(['/login']);
+  }
+  goPerfil() {
+    this.router.navigate(['/perfil'])
+  }
+  goHome() {
+    this.router.navigate(['/home'])
   }
 }
 
