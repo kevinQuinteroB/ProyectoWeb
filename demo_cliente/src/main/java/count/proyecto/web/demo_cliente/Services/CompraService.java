@@ -10,6 +10,7 @@ import count.proyecto.web.demo_cliente.Repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -39,5 +40,13 @@ public class CompraService {
         compra.setJuego(juego);
 
         return compraRepository.save(compra);
+
+    }
+    public void delete (Long idCompra){
+        compraRepository.deleteById(idCompra);
+    }
+    public void updateCompra(Compra compra, Date fecha, double total){
+        compra.setFecha(fecha);
+        compra.setTotalCompra(total);
     }
 }

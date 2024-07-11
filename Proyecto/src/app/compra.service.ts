@@ -34,4 +34,11 @@ export class CompraService {
       })
     );
   }
+  deletebyId(id_Compra:number):Observable<Compra>{
+    return this.httpClient.delete<Compra>(`${this.url}/buy/del/${id_Compra}`).pipe(
+      tap(compra => {
+        console.log("Item eliminado del carrito", compra);
+      })
+    );
+  }
 }

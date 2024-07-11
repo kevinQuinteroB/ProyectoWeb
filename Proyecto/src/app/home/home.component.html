@@ -123,9 +123,7 @@
           <pre class="text2">
             2211848: Diego Alejandro García Barajas
             2211867: Jhon Jairo Almanzar Quintero 
-            2211884: Kevin Steven Quintero Buitrago
-            {{this.idCurrentUser}}
-          </pre>
+            2211884: Kevin Steven Quintero Buitrago</pre>
         </div>
       </div>
     </div>
@@ -159,12 +157,12 @@
                       <td class="color-table">{{buy.juego.nombre}}</td>
                       <td class="color-table">{{buy.juego.precio}}</td>
                       <td class="color-table">{{buy.juego.descuento}}</td>
-                      <td class="color-table"><button type="button" class="btn btn-danger">Eliminar</button></td>
+                      <td class="color-table"><button type="button" class="btn btn-danger" (click)="delById(buy.idCompra) ">Eliminar</button></td>
                     </tr>
                   </ng-container>
                   <tr>
                     <td class="color-table">Total</td>
-                    <td class="color-table"></td>
+                    <td class="color-table">{{this.total}}</td>
                     <td class="color-table">Total con Descuentos</td>
                     <td class="color-table"><button type="button" class="btn btn-success">Comprar</button></td>
                   </tr>

@@ -30,6 +30,9 @@ export class HomeComponent {
   compra: Compra;
   currentGame: Juego | null = null;
   idCurrentUser: number;
+  total:number=0;
+
+
   constructor(
     private renderer: Renderer2,
     private gameService: JuegoService,
@@ -46,7 +49,7 @@ export class HomeComponent {
 
   ngOnInit() {
     this.usuarioRegistrado = this.usuarioService.getUsuarioRegistrado();
-
+    this.compras.forEach(compra=>{ this.total+=compra.juego.precio});
     const options = document.getElementById('options');
     var button = document.getElementById('boton_orden');
     button?.addEventListener('click', () => {
@@ -105,23 +108,31 @@ export class HomeComponent {
   }
 
   agregarCarrito(juego: number): void {
-    
-    if (this.usuarioRegistrado!=null) {
-      if(this.compras.some(compra=>compra.juego.idJuego==juego)){
-      this.compraService.agregarCarrito(this.idCurrentUser, juego, this.compra).subscribe(Response => {
+
+    if (this.usuarioRegistrado != null) {
+      if (!this.compras.some(compra => compra.juego.idJuego == juego)) {
+        this.compraService.agregarCarrito(this.idCurrentUser, juego, this.compra).subscribe(Response => {
           this.compras.push(Response);
           console.log("Verificando compras list", this.compras)
         });
-      this.compraService.findAll(this.usuarioRegistrado.idUsuario).subscribe(Response => {
-        this.compras = Response;
-      });}else{
+        this.compraService.findAll(this.usuarioRegistrado.idUsuario).subscribe(Response => {
+          this.compras = Response;
+        });
+      } else {
         console.log("El juego ya esta en el carrito", this.compras);
       }
     } else {
       console.log("Error con usuario", this.usuarioRegistrado);
     }
   }
-
+  delById(id_Compra:number) {
+    this.compraService.deletebyId(id_Compra).subscribe(Response=>{
+      console.log('Juego eliminado del Carrito',Response);
+      if (this.usuarioRegistrado != null) {
+      this.compraService.findAll(this.usuarioRegistrado.idUsuario).subscribe(Response => {
+        this.compras = Response;})};
+    })
+  }
 
   refreshPage() {
     this.location.go(this.location.path());
