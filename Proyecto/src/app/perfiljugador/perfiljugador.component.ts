@@ -114,4 +114,10 @@ export class PerfiljugadorComponent {
     );
   }
 
+  home(){
+    this.router.navigate(['/home']);
+  }
+  CerrarSession(){
+    this.router.navigate(['/login']);
+  }
 }
