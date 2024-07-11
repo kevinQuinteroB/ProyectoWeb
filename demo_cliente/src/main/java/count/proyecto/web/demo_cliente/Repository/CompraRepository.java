@@ -21,6 +21,6 @@ public interface CompraRepository extends JpaRepository<Compra,Long> {
 
     @Modifying
     @Transactional
-    @Query("UPDATE Compra u SET u.fecha = :fecha,u.totalCompra=:totalCompra WHERE u.idCompra = :idCompra")
+    @Query("UPDATE Compra u SET u.fecha = :fecha, u.totalCompra=:totalCompra WHERE u.idCompra = :idCompra")
     void actualizarVenta(@Param("idCompra") Long idCompra, @Param("totalCompra") double totalCompra, @Param("fecha") Date fecha);
 }
