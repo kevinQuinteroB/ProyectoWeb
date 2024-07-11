@@ -41,10 +41,10 @@ export class CompraService {
       })
     );
   }
-  updateCompras(fecha:Date,monto:number,compra:Compra ):Observable<Compra>{
-    return this.httpClient.put<Compra>(`${this.url}/buy/update/${fecha}/${monto}`,compra).pipe(
+  updateCompras(fecha:Date,monto:number,idCompra:number , compra:Compra):Observable<Compra>{
+    return this.httpClient.put<Compra>(`${this.url}/buy/update//${idCompra}/${fecha}/${monto}`,compra).pipe(
       tap(compra => {
-        console.log("Item eliminado del carrito", compra);
+        console.log("Item actualizado en el carrito", compra);
       })
     );
   }
