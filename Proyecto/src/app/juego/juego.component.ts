@@ -11,8 +11,6 @@ import { Location } from '@angular/common';
 import { Usuario } from '../usuario';
 import { UsuarioService } from '../usuario.service';
 import { Router } from '@angular/router';
-import { timer } from 'rxjs';
-
 
 @Component({
   selector: 'app-juego',
@@ -34,6 +32,7 @@ export class JuegoComponent implements OnInit {
   idJuego: number  // Reemplaza con el ID del juego actual
   sesionUsuario: Usuario | null = null
   sesionJuego: Juego | null = null
+  prueba: number 
 
   constructor(
     private valoracionService: ValoracionService,
@@ -51,6 +50,7 @@ export class JuegoComponent implements OnInit {
     this.sesionJuego = this.juegoService.getJuegoRegistrado();
     if (this.sesionJuego) {
       this.idJuego = this.sesionJuego.idJuego;
+
       this.getJuegoById(this.idJuego);
       this.getjuegoGenerosByJuego(this.idJuego); 
       this.getComentarios(this.idJuego);
