@@ -95,10 +95,10 @@
         <div class="col-9 row">
           <ng-container *ngFor="let j of juego">
             <div class="gamesZone col-4">
-              <img [src]="j.imagen" alt="ImagenNoDisponible" class="portada" id="image_game">
-              <button style="margin-left: 1%; margin-top: 320px; display:inline-block; position: absolute;" type="button"
+              <img [src]="j.imagen" alt="ImagenNoDisponible" class="portada" id="image_game" >
+              <button style="margin-left: 1%; margin-top: 320px; position: absolute;" type="button"
                 class="btn btn-info image_game_button" id="addToCartButton" (click)="agregarCarrito(j.idJuego)">Agregar al Carrito</button>
-              <button style="margin-left: 1%; margin-top: 360px; display:inline-block; position: absolute;" type="button"
+              <button style="margin-left: 1%; margin-top: 360px; position: absolute;" type="button"
                 class="btn btn-light image_game_button" id="viewMoreInfoButton" (click)="goPaginaJuego(j.idJuego)">Ver más Información</button>
               
             </div>

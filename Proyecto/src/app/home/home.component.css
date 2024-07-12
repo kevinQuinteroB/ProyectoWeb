@@ -327,8 +327,9 @@ body {
 }
 
 .image_game_button  {
-    z-index:8;
-    position: relative;
+    display: block;
+    z-index: 7;
+    position: absolute;
     top: auto;
     color:#fff;
     border: #202020 solid 1px;

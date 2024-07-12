@@ -10,8 +10,9 @@ import { Genero } from '../genero';
 import { Compra } from '../compra';
 import { Usuario } from '../usuario';
 import { JuegoGenero } from '../juego-genero';
-import { formatDate, Location } from '@angular/common';
+import { formatDate, Location, NgStyle } from '@angular/common';
 import { LoginComponent } from '../login/login.component';
+import { style } from '@angular/animations';
 
 @Component({
   selector: 'app-home',
@@ -31,8 +32,8 @@ export class HomeComponent {
   currentGame: Juego | null = null;
   idCurrentUser: number;
   total: number = 0;
-  totaldesc:number=0;
-  fecha:Date = new Date();
+  totaldesc: number = 0;
+  fecha: Date = new Date();
 
 
   constructor(
@@ -91,15 +92,15 @@ export class HomeComponent {
   //Fin ng init
 
   actualizarprecio(): void {
-    this.total=0;
-    let sum=0;
-    let desc=0;
+    this.total = 0;
+    let sum = 0;
+    let desc = 0;
     for (let i = 0; i < this.compras.length; i++) {
-       sum=sum+this.compras[i].juego.precio;
-       desc=desc+(this.compras[i].juego.precio-(this.compras[i].juego.precio*(this.compras[i].juego.descuento/100)))
+      sum = sum + this.compras[i].juego.precio;
+      desc = desc + (this.compras[i].juego.precio - (this.compras[i].juego.precio * (this.compras[i].juego.descuento / 100)))
     }
-    this.total=sum;
-    this.totaldesc=desc;
+    this.total = sum;
+    this.totaldesc = desc;
   }
   searchForGender(idGender: number) {
     this.jgService.findByGender(idGender).subscribe(Response => {
@@ -119,7 +120,7 @@ export class HomeComponent {
   }
 
   agregarCarrito(juego: number): void {
-    
+
     if (this.usuarioRegistrado != null) {
       if (!this.compras.some(compra => compra.juego.idJuego == juego)) {
         this.compraService.agregarCarrito(this.idCurrentUser, juego, this.compra).subscribe(Response => {
@@ -160,21 +161,33 @@ export class HomeComponent {
     });
     this.router.navigate(['/juego']);
   }
-  actualizarCompra(){
+  actualizarCompra() {
     console.log("fecha", this.fecha)
     this.actualizarprecio();
 
     for (let i = 0; i < this.compras.length; i++) {
-      this.compraService.updateCompras(this.fecha,this.totaldesc,this.compras[i]).subscribe(Response=>{
+      this.compraService.updateCompras(this.fecha, this.totaldesc, this.compras[i]).subscribe(Response => {
         this.compras[i] = Response;
         console.log('Actualizacion por venta de juego', Response)
-      
+
       })
     }
-    
-    this.compras=[];
+
+    this.compras = [];
     this.refreshPage();
   }
+
+  //Metodo para esconder las imagenes
+  ocultarImagen() {
+
+    const juego = document.getElementById('image_game');
+    if(juego?.onmousemove){
+    const buttons = document.querySelectorAll<HTMLButtonElement>('.image_game_button');
+    buttons.forEach(button => button.style.display = 'block' );
+    }
+  }
+
+
 }
 
 document.addEventListener('DOMContentLoaded', function () {
